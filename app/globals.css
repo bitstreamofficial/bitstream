@@ -144,6 +144,14 @@ body {
     animation: scroll 2s ease-in-out infinite;
   }
 
+  /* New animations for enhanced floating card */
+  .animate-ping {
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+
   /* Animation Delays */
   .animation-delay-200 { animation-delay: 200ms; }
   .animation-delay-400 { animation-delay: 400ms; }
@@ -236,6 +244,13 @@ body {
   100% {
     opacity: 0;
     transform: translateY(10px);
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
   }
 }
 

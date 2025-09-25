@@ -12,8 +12,41 @@ export function HeroSection() {
         {/* Floating Orb - Reduced to single element */}
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob" />
 
-        {/* Glassmorphism Card - Single floating element */}
-        <div className="absolute top-20 right-20 w-48 h-24 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl hidden lg:block animate-float" />
+        {/* Enhanced Stylish Floating Card */}
+        <div className="absolute top-20 right-20 w-56 h-32 hidden lg:block animate-float group">
+          {/* Main card */}
+          <div className="relative w-full h-full bg-gradient-to-br from-white/20 via-blue-50/30 to-purple-50/20 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-500 overflow-hidden">
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 via-purple-400/10 to-pink-400/10 animate-gradient-x opacity-60" />
+            
+            {/* Floating particles/dots */}
+            <div className="absolute top-4 left-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+            <div className="absolute top-6 right-6 w-1.5 h-1.5 bg-purple-400 rounded-full animate-ping animation-delay-300" />
+            <div className="absolute bottom-5 left-6 w-1 h-1 bg-pink-400 rounded-full animate-bounce animation-delay-500" />
+            
+            {/* Content */}
+            <div className="relative z-10 p-6 h-full flex flex-col justify-center">
+              <div className="flex items-center mb-2">
+                <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mr-3 animate-pulse" />
+                <span className="text-sm font-semibold text-gray-700/90">Live Projects</span>
+              </div>
+              <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-1">
+                5 Active
+              </div>
+              <div className="text-xs text-gray-600/80 font-medium">
+                In Development
+              </div>
+            </div>
+            
+            {/* Hover glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+            
+            {/* Border glow */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 p-[1px] opacity-0 group-hover:opacity-50 transition-opacity duration-500">
+              <div className="w-full h-full bg-transparent rounded-3xl" />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="relative container-custom z-10">
