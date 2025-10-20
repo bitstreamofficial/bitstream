@@ -264,13 +264,7 @@ export default function ContactPage() {
                     { name: 'lastName', label: 'Last Name', required: true }
                   ].map((field) => (
                     <div key={field.name} className="relative">
-                      <label className={`
-                        absolute left-4 transition-all duration-300 pointer-events-none
-                        ${focusedField === field.name || formData[field.name as keyof typeof formData] 
-                          ? '-top-3 left-3 text-sm font-semibold text-blue-600 bg-white px-2 rounded-full' 
-                          : 'top-3 text-gray-500'
-                        }
-                      `}>
+                      <label className="-top-3 left-3 absolute text-sm font-semibold text-blue-600 bg-white px-2 rounded-full pointer-events-none z-10">
                         {field.label} {field.required && '*'}
                       </label>
                       <input
@@ -281,6 +275,7 @@ export default function ContactPage() {
                         onFocus={() => setFocusedField(field.name)}
                         onBlur={() => setFocusedField(null)}
                         required={field.required}
+                        placeholder={field.label}
                         className={`
                           w-full px-4 py-3 bg-white/80 border rounded-2xl transition-all duration-300
                           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
@@ -293,13 +288,7 @@ export default function ContactPage() {
 
                 {/* Email */}
                 <div className="relative">
-                  <label className={`
-                    absolute left-4 transition-all duration-300 pointer-events-none
-                    ${focusedField === 'email' || formData.email 
-                      ? '-top-3 left-3 text-sm font-semibold text-blue-600 bg-white px-2 rounded-full' 
-                      : 'top-3 text-gray-500'
-                    }
-                  `}>
+                  <label className="-top-3 left-3 absolute text-sm font-semibold text-blue-600 bg-white px-2 rounded-full pointer-events-none z-10">
                     Email *
                   </label>
                   <input
@@ -310,6 +299,7 @@ export default function ContactPage() {
                     onFocus={() => setFocusedField('email')}
                     onBlur={() => setFocusedField(null)}
                     required
+                    placeholder="your.email@example.com"
                     className={`
                       w-full px-4 py-3 bg-white/80 border rounded-2xl transition-all duration-300
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
@@ -320,13 +310,7 @@ export default function ContactPage() {
 
                 {/* Company */}
                 <div className="relative">
-                  <label className={`
-                    absolute left-4 transition-all duration-300 pointer-events-none
-                    ${focusedField === 'company' || formData.company 
-                      ? '-top-3 left-3 text-sm font-semibold text-blue-600 bg-white px-2 rounded-full' 
-                      : 'top-3 text-gray-500'
-                    }
-                  `}>
+                  <label className="-top-3 left-3 absolute text-sm font-semibold text-blue-600 bg-white px-2 rounded-full pointer-events-none z-10">
                     Company
                   </label>
                   <input
@@ -336,6 +320,7 @@ export default function ContactPage() {
                     onChange={handleInputChange}
                     onFocus={() => setFocusedField('company')}
                     onBlur={() => setFocusedField(null)}
+                    placeholder="Your company name"
                     className={`
                       w-full px-4 py-3 bg-white/80 border rounded-2xl transition-all duration-300
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
@@ -346,13 +331,7 @@ export default function ContactPage() {
 
                 {/* Project Type */}
                 <div className="relative">
-                  <label className={`
-                    absolute left-4 transition-all duration-300 pointer-events-none
-                    ${focusedField === 'project' || formData.project 
-                      ? '-top-3 left-3 text-sm font-semibold text-blue-600 bg-white px-2 rounded-full' 
-                      : 'top-3 text-gray-500'
-                    }
-                  `}>
+                  <label className="-top-3 left-3 absolute text-sm font-semibold text-blue-600 bg-white px-2 rounded-full pointer-events-none z-10">
                     Project Type
                   </label>
                   <select
@@ -364,18 +343,20 @@ export default function ContactPage() {
                     className={`
                       w-full px-4 py-3 bg-white/80 border rounded-2xl transition-all duration-300
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none
+                      cursor-pointer
                       ${focusedField === 'project' ? 'border-blue-500 shadow-lg scale-105' : 'border-white/40 hover:border-white/60'}
+                      ${!formData.project ? 'text-gray-500' : 'text-gray-900'}
                     `}
                   >
-                    <option value="">Select a project type</option>
-                    <option value="web">Web Development</option>
-                    <option value="mobile">Mobile Development</option>
-                    <option value="both">Web & Mobile</option>
-                    <option value="consulting">Consulting</option>
-                    <option value="other">Other</option>
+                    <option value="" disabled>Select a project type</option>
+                    <option value="web" className="text-gray-900 bg-white">Web Development</option>
+                    <option value="mobile" className="text-gray-900 bg-white">Mobile Development</option>
+                    <option value="both" className="text-gray-900 bg-white">Web & Mobile</option>
+                    <option value="consulting" className="text-gray-900 bg-white">Consulting</option>
+                    <option value="other" className="text-gray-900 bg-white">Other</option>
                   </select>
                   <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className={`w-5 h-5 transition-colors duration-300 ${focusedField === 'project' ? 'text-blue-500' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </div>
@@ -383,13 +364,7 @@ export default function ContactPage() {
 
                 {/* Message */}
                 <div className="relative">
-                  <label className={`
-                    absolute left-4 transition-all duration-300 pointer-events-none
-                    ${focusedField === 'message' || formData.message 
-                      ? '-top-3 left-3 text-sm font-semibold text-blue-600 bg-white px-2 rounded-full' 
-                      : 'top-3 text-gray-500'
-                    }
-                  `}>
+                  <label className="-top-3 left-3 absolute text-sm font-semibold text-blue-600 bg-white px-2 rounded-full pointer-events-none z-10">
                     Message *
                   </label>
                   <textarea
@@ -400,7 +375,7 @@ export default function ContactPage() {
                     onBlur={() => setFocusedField(null)}
                     required
                     rows={5}
-                    placeholder={focusedField === 'message' ? "Tell us about your project, timeline, budget, and any specific requirements..." : ""}
+                    placeholder="Tell us about your project, timeline, budget, and any specific requirements..."
                     className={`
                       w-full px-4 py-3 bg-white/80 border rounded-2xl transition-all duration-300 resize-vertical
                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
