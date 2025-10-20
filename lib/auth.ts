@@ -1,6 +1,7 @@
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { connectToDatabase } from './db'
+import bcrypt from 'bcryptjs'
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -25,9 +26,11 @@ export const authOptions: NextAuthOptions = {
             return null
           }
 
-          // In a real app, you'd hash and compare passwords
-          // For now, this is just a placeholder
-          const isPasswordValid = credentials.password === user.password
+          // Verify password using bcrypt
+          const isPasswordValid = await bcrypt.compare(
+            credentials.password,
+            user.password
+          )
 
           if (!isPasswordValid) {
             return null
@@ -50,7 +53,6 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: '/auth/signin',
-    signUp: '/auth/signup',
   },
   callbacks: {
     async jwt({ token, user }) {
@@ -60,8 +62,11 @@ export const authOptions: NextAuthOptions = {
       return token
     },
     async session({ session, token }) {
-      if (token) {
-        session.user.id = token.id as string
+      if (token && session.user) {
+        session.user = {
+          ...session.user,
+          id: token.id as string,
+        }
       }
       return session
     }
