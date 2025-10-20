@@ -14,6 +14,13 @@ export const metadata = {
   keywords: ['web development', 'mobile development', 'scalable solutions', 'BitStream'],
   authors: [{ name: 'BitStream Team' }],
   creator: 'BitStream',
+  icons: {
+    icon: [
+      { url: '/images/url_logo.png', type: 'image/png' },
+      { url: '/icons/favicon.ico', sizes: 'any' }
+    ],
+    apple: '/icons/icon-192x192.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -21,12 +28,21 @@ export const metadata = {
     title: 'BitStream - Building scalable mobile & web solutions',
     description: 'BitStream specializes in building scalable mobile and web solutions.',
     siteName: 'BitStream',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'BitStream Logo',
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'BitStream - Building scalable mobile & web solutions',
     description: 'BitStream specializes in building scalable mobile and web solutions.',
     creator: '@bitstream',
+    images: ['/images/logo.png'],
   },
   robots: {
     index: true,
