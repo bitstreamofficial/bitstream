@@ -24,20 +24,39 @@ const navigation = [
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [isOverFooter, setIsOverFooter] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
+      
+      // Check if navbar is over footer
+      const footer = document.querySelector('footer')
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect()
+        const navbarHeight = 80 // Approximate navbar height
+        
+        // Check if top of footer is visible and navbar is over it
+        if (footerRect.top <= navbarHeight && footerRect.bottom > 0) {
+          setIsOverFooter(true)
+        } else {
+          setIsOverFooter(false)
+        }
+      }
     }
+    
+    handleScroll() // Check on mount
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-white/80 backdrop-blur-lg shadow-lg border-b border-white/20' 
-        : 'bg-transparent'
+    <nav className={`fixed w-full top-0 z-50 transition-all duration-500 ${
+      isOverFooter
+        ? 'bg-gradient-to-r from-slate-900/95 via-blue-900/95 to-indigo-900/95 backdrop-blur-lg shadow-2xl border-b border-white/10'
+        : scrolled 
+          ? 'bg-white/80 backdrop-blur-lg shadow-lg border-b border-white/20' 
+          : 'bg-transparent'
     }`}>
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
@@ -55,10 +74,16 @@ export function Navbar() {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-300" />
               </div>
               <div>
-                <span className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
+                <span className={`text-lg sm:text-xl font-bold transition-all duration-300 ${
+                  isOverFooter 
+                    ? 'text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400'
+                    : 'text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600'
+                }`}>
                   BitStream
                 </span>
-                <div className="hidden lg:block text-xs text-gray-500 -mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className={`hidden lg:block text-xs -mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                  isOverFooter ? 'text-gray-300' : 'text-gray-500'
+                }`}>
                   Building scalable solutions
                 </div>
               </div>
@@ -71,11 +96,17 @@ export function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative text-gray-700 hover:text-blue-600 transition-colors font-medium group animate-fade-in-up cursor-pointer text-sm lg:text-base"
+                className={`relative font-medium group animate-fade-in-up cursor-pointer text-sm lg:text-base transition-colors ${
+                  isOverFooter 
+                    ? 'text-gray-200 hover:text-white' 
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {item.name}
-                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                <div className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r ${
+                  isOverFooter ? 'from-blue-400 to-purple-400' : 'from-blue-600 to-purple-600'
+                } transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
               </Link>
             ))}
 
@@ -106,22 +137,22 @@ export function Navbar() {
               type="button"
               className={`relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
                 mobileMenuOpen 
-                  ? 'bg-gray-100' 
-                  : 'hover:bg-gray-50'
+                  ? isOverFooter ? 'bg-white/20' : 'bg-gray-100'
+                  : isOverFooter ? 'hover:bg-white/10' : 'hover:bg-gray-50'
               }`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
               <div className="relative w-6 h-6">
-                <span className={`absolute block h-0.5 w-6 bg-gray-600 transition-all duration-300 ${
-                  mobileMenuOpen ? 'top-3 rotate-45' : 'top-1'
-                }`} />
-                <span className={`absolute block h-0.5 w-6 bg-gray-600 transition-all duration-300 ${
-                  mobileMenuOpen ? 'opacity-0' : 'top-3'
-                }`} />
-                <span className={`absolute block h-0.5 w-6 bg-gray-600 transition-all duration-300 ${
-                  mobileMenuOpen ? 'top-3 -rotate-45' : 'top-5'
-                }`} />
+                <span className={`absolute block h-0.5 w-6 transition-all duration-300 ${
+                  isOverFooter ? 'bg-white' : 'bg-gray-600'
+                } ${mobileMenuOpen ? 'top-3 rotate-45' : 'top-1'}`} />
+                <span className={`absolute block h-0.5 w-6 transition-all duration-300 ${
+                  isOverFooter ? 'bg-white' : 'bg-gray-600'
+                } ${mobileMenuOpen ? 'opacity-0' : 'top-3'}`} />
+                <span className={`absolute block h-0.5 w-6 transition-all duration-300 ${
+                  isOverFooter ? 'bg-white' : 'bg-gray-600'
+                } ${mobileMenuOpen ? 'top-3 -rotate-45' : 'top-5'}`} />
               </div>
             </button>
           </div>
@@ -131,19 +162,29 @@ export function Navbar() {
         <div className={`md:hidden transition-all duration-300 overflow-hidden ${
           mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="py-4 space-y-2 bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl border border-white/20 mb-4">
+          <div className={`py-4 space-y-2 backdrop-blur-lg rounded-2xl shadow-xl mb-4 ${
+            isOverFooter 
+              ? 'bg-slate-800/95 border border-white/20'
+              : 'bg-white/95 border border-white/20'
+          }`}>
             {navigation.map((item, index) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-6 py-3 text-base text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 font-medium animate-fade-in-up active:scale-95"
+                className={`block px-6 py-3 text-base rounded-xl transition-all duration-300 font-medium animate-fade-in-up active:scale-95 ${
+                  isOverFooter
+                    ? 'text-gray-200 hover:text-white hover:bg-white/10'
+                    : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                }`}
                 style={{ animationDelay: `${index * 50}ms` }}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="px-6 pt-2 border-t border-gray-200 mt-2">
+            <div className={`px-6 pt-2 mt-2 ${
+              isOverFooter ? 'border-t border-white/20' : 'border-t border-gray-200'
+            }`}>
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
                 <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in-up animation-delay-400 active:scale-95">
                   Let's build together
