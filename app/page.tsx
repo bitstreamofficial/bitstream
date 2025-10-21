@@ -1,6 +1,6 @@
-import { HeroSection } from '@/components/sections/hero'
-import { ServicesSection } from '@/components/sections/services'
-import { ProjectsSection } from '@/components/sections/projects'
+import { HeroSection } from '@/components/sections/hero';
+import { ServicesSection } from '@/components/sections/services';
+import { ProjectsSection } from '@/components/sections/projects';
 
 export default function HomePage() {
   return (
@@ -9,5 +9,5 @@ export default function HomePage() {
       <ServicesSection />
       <ProjectsSection />
     </div>
-  )
+  );
 }

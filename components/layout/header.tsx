@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/ui/navbar'
+import { Navbar } from '@/components/ui/navbar';
 
 export function Header() {
-  return <Navbar />
+  return <Navbar />;
 }

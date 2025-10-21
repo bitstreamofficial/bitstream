@@ -17,7 +17,7 @@ BitStream is a modern, high-performance Next.js starter template designed for bu
 
 ### ✨ Live Demo
 
-Visit our live demo: [bitstream-demo.vercel.app](https://your-demo-url.com)
+Visit our live demo: [bitstream-demo.vercel.app](https://bitstream-demo.vercel.app)
 
 ## 🎯 Features
 

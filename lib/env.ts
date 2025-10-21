@@ -7,7 +7,7 @@ const requiredEnvVars = [
   'MONGODB_URI',
   'NEXTAUTH_SECRET',
   'NEXTAUTH_URL',
-] as const
+] as const;
 
 const optionalEnvVars = [
   'SENDGRID_API_KEY',
@@ -17,17 +17,19 @@ const optionalEnvVars = [
   'CLOUDINARY_API_KEY',
   'CLOUDINARY_API_SECRET',
   'NEXT_PUBLIC_APP_URL',
-] as const
+] as const;
 
-type EnvVar = typeof requiredEnvVars[number] | typeof optionalEnvVars[number]
+type EnvVar =
+  | (typeof requiredEnvVars)[number]
+  | (typeof optionalEnvVars)[number];
 
 export function validateEnv(): void {
-  const missing: string[] = []
+  const missing: string[] = [];
 
   // Check required environment variables
   for (const envVar of requiredEnvVars) {
     if (!process.env[envVar]) {
-      missing.push(envVar)
+      missing.push(envVar);
     }
   }
 
@@ -36,14 +38,14 @@ export function validateEnv(): void {
       `Missing required environment variables:\n${missing
         .map((v) => `  - ${v}`)
         .join('\n')}\n\nPlease check your .env.local file.`
-    )
+    );
   }
 
   // Warn about missing optional variables
-  const missingOptional: string[] = []
+  const missingOptional: string[] = [];
   for (const envVar of optionalEnvVars) {
     if (!process.env[envVar]) {
-      missingOptional.push(envVar)
+      missingOptional.push(envVar);
     }
   }
 
@@ -52,21 +54,24 @@ export function validateEnv(): void {
       `⚠️  Warning: Missing optional environment variables:\n${missingOptional
         .map((v) => `  - ${v}`)
         .join('\n')}`
-    )
+    );
   }
 }
 
 export function getEnv(key: EnvVar): string {
-  const value = process.env[key]
-  
-  if (!value && requiredEnvVars.includes(key as typeof requiredEnvVars[number])) {
-    throw new Error(`Environment variable ${key} is required but not set`)
+  const value = process.env[key];
+
+  if (
+    !value &&
+    requiredEnvVars.includes(key as (typeof requiredEnvVars)[number])
+  ) {
+    throw new Error(`Environment variable ${key} is required but not set`);
   }
-  
-  return value || ''
+
+  return value || '';
 }
 
 // Validate on import (only in Node.js environment)
 if (typeof window === 'undefined') {
-  validateEnv()
+  validateEnv();
 }
