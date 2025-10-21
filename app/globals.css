@@ -43,7 +43,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.025em;
@@ -52,15 +57,15 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg hover:shadow-xl cursor-pointer;
+    @apply transform cursor-pointer rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-blue-700 hover:to-purple-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-gray-900 font-semibold py-3 px-6 rounded-xl border-2 border-gray-200 hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 shadow-md hover:shadow-lg cursor-pointer;
+    @apply transform cursor-pointer rounded-xl border-2 border-gray-200 bg-white px-6 py-3 font-semibold text-gray-900 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:bg-gray-50 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
   }
 
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
   .section-padding {
@@ -69,7 +74,7 @@ body {
 
   /* Card styles */
   .card {
-    @apply bg-white/80 backdrop-blur-lg rounded-2xl border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer;
+    @apply cursor-pointer rounded-2xl border border-white/30 bg-white/80 shadow-xl backdrop-blur-lg transition-all duration-300 hover:shadow-2xl;
   }
 
   .card-content {
@@ -78,16 +83,19 @@ body {
 
   /* Glassmorphism */
   .glass {
-    @apply bg-white/20 backdrop-blur-lg border border-white/30;
+    @apply border border-white/30 bg-white/20 backdrop-blur-lg;
   }
 
   /* Input styles */
   .input {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white/80 backdrop-blur-sm cursor-text;
+    @apply w-full cursor-text rounded-xl border border-gray-300 bg-white/80 px-4 py-3 backdrop-blur-sm transition-all duration-200 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500;
   }
 
   /* Clickable elements cursor fix */
-  button, a, [role="button"], .clickable {
+  button,
+  a,
+  [role='button'],
+  .clickable {
     cursor: pointer !important;
   }
 
@@ -110,7 +118,7 @@ body {
   }
 
   /* Fix for elements with translate transforms */
-  [class*="translate"]:hover {
+  [class*='translate']:hover {
     cursor: pointer;
   }
 }
@@ -118,12 +126,12 @@ body {
 @layer utilities {
   /* Scrollbar hide utility */
   .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari and Opera */
+    display: none; /* Chrome, Safari and Opera */
   }
 
   /* Animation Classes */
@@ -170,17 +178,35 @@ body {
     animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
 
-  .animation-delay-300 { animation-delay: 300ms; }
-  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
 
   /* Animation Delays */
-  .animation-delay-200 { animation-delay: 200ms; }
-  .animation-delay-400 { animation-delay: 400ms; }
-  .animation-delay-600 { animation-delay: 600ms; }
-  .animation-delay-800 { animation-delay: 800ms; }
-  .animation-delay-1000 { animation-delay: 1000ms; }
-  .animation-delay-2000 { animation-delay: 2000ms; }
-  .animation-delay-4000 { animation-delay: 4000ms; }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2000ms;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4000ms;
+  }
 
   /* Utility Classes */
   .text-balance {
@@ -196,7 +222,7 @@ body {
 
   /* Gradient Text */
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600;
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent;
   }
 }
 
@@ -221,7 +247,8 @@ body {
 }
 
 @keyframes gradientX {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -245,7 +272,8 @@ body {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -269,7 +297,8 @@ body {
 }
 
 @keyframes ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(2);
     opacity: 0;
   }

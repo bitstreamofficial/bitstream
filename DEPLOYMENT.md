@@ -3,6 +3,7 @@
 ## Pre-Deployment Checklist
 
 ### ✅ Code Quality
+
 - [x] All TypeScript errors fixed
 - [x] ESLint warnings resolved
 - [x] Tests passing
@@ -10,6 +11,7 @@
 - [x] No console.errors in production code
 
 ### ✅ Security
+
 - [x] Environment variables validation added
 - [x] Password hashing implemented (bcryptjs)
 - [x] Rate limiting on API routes
@@ -20,6 +22,7 @@
 - [ ] Dependencies updated and checked for vulnerabilities
 
 ### ✅ Environment Configuration
+
 - [x] .env.example file created
 - [ ] Production environment variables configured
 - [ ] NEXTAUTH_SECRET generated (use: `openssl rand -base64 32`)
@@ -28,6 +31,7 @@
 - [ ] Cloudinary credentials configured (if using images)
 
 ### 📋 Database
+
 - [ ] Production MongoDB database created
 - [ ] Database indexes created
 - [ ] Database backup strategy configured
@@ -35,6 +39,7 @@
 - [ ] Database migrations tested
 
 ### 📋 Performance
+
 - [ ] Image optimization configured
 - [ ] Static assets optimized
 - [ ] Bundle size checked
@@ -42,12 +47,14 @@
 - [ ] Core Web Vitals optimized
 
 ### 📋 Monitoring & Analytics
+
 - [ ] Error tracking configured (e.g., Sentry)
 - [ ] Analytics configured (e.g., Google Analytics, Vercel Analytics)
 - [ ] Logging system setup
 - [ ] Uptime monitoring configured
 
 ### 📋 SEO & Meta
+
 - [ ] Meta tags added to all pages
 - [ ] robots.txt configured
 - [ ] sitemap.xml generated
@@ -55,6 +62,7 @@
 - [ ] Favicon and app icons configured
 
 ### 📋 Documentation
+
 - [ ] README.md updated
 - [ ] API documentation written
 - [ ] Deployment instructions documented
@@ -65,6 +73,7 @@
 ### Option 1: Vercel (Recommended)
 
 1. **Install Vercel CLI** (optional)
+
    ```bash
    npm i -g vercel
    ```
@@ -91,6 +100,7 @@
 ### Option 2: Docker Deployment
 
 1. **Create Dockerfile**
+
    ```dockerfile
    FROM node:18-alpine AS deps
    RUN apk add --no-cache libc6-compat
@@ -123,6 +133,7 @@
 ### Option 3: Traditional VPS (DigitalOcean, AWS, etc.)
 
 1. **Setup Server**
+
    ```bash
    # Update system
    sudo apt update && sudo apt upgrade -y
@@ -136,6 +147,7 @@
    ```
 
 2. **Deploy Application**
+
    ```bash
    # Clone repository
    git clone <your-repo-url>
@@ -154,6 +166,7 @@
    ```
 
 3. **Setup Nginx (reverse proxy)**
+
    ```nginx
    server {
        listen 80;
@@ -179,6 +192,7 @@
 ## Post-Deployment
 
 ### Verification
+
 - [ ] Application loads successfully
 - [ ] All pages accessible
 - [ ] Forms working correctly
@@ -191,12 +205,14 @@
 - [ ] SSL certificate valid
 
 ### Monitoring Setup
+
 - [ ] Setup error alerts
 - [ ] Configure uptime monitoring
 - [ ] Setup performance monitoring
 - [ ] Configure log aggregation
 
 ### Backup Strategy
+
 - [ ] Database automated backups
 - [ ] Code repository backups
 - [ ] Asset backups (images, files)
@@ -252,6 +268,7 @@ pm2 start npm --name "bitstream" -- start
 4. **Images not loading**: Check Cloudinary configuration
 
 ### Getting Help
+
 - Check application logs
 - Review error tracking dashboard
 - Contact support: official.bitstream@gmail.com

@@ -1,5 +1,5 @@
-import { FooterUI } from '@/components/ui/footer'
+import { FooterUI } from '@/components/ui/footer';
 
 export function Footer() {
-  return <FooterUI />
+  return <FooterUI />;
 }
