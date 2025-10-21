@@ -151,15 +151,15 @@ export function ServicesSection() {
         {/* Filter Tabs - Responsive */}
         <div className={`flex justify-center mb-12 transition-all duration-1000 delay-600 ${isInView ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
           <div className="w-full max-w-4xl">
-            {/* Mobile: Horizontal scroll */}
-            <div className="md:hidden overflow-x-auto scrollbar-hide">
-              <div className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-2xl p-2 inline-flex gap-2 min-w-full">
+            {/* Mobile: Vertical layout */}
+            <div className="md:hidden">
+              <div className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-2xl p-3 flex flex-col gap-2">
                 {categories.map((category, index) => (
                   <button
                     key={category}
                     onClick={() => setActiveCategory(category)}
                     className={`
-                      px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 transform hover:scale-105 whitespace-nowrap flex-shrink-0
+                      px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-105 whitespace-nowrap
                       ${activeCategory === category
                         ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg scale-105' 
                         : 'text-gray-600 hover:text-gray-900 hover:bg-white/60'
