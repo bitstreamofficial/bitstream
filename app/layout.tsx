@@ -57,10 +57,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="light" suppressHydrationWarning>
-      <body className={inter.className}>
-        <div className="min-h-screen flex flex-col bg-white">
+      <body className={`${inter.className} overflow-x-hidden`}>
+        <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
           <Header />
-          <main className="flex-1">
+          <main className="flex-1 overflow-x-hidden">
             {children}
           </main>
           <Footer />

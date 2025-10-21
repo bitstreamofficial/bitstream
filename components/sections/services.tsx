@@ -148,30 +148,55 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* Filter Tabs */}
+        {/* Filter Tabs - Responsive */}
         <div className={`flex justify-center mb-12 transition-all duration-1000 delay-600 ${isInView ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-2xl p-2 inline-flex gap-2 overflow-x-auto">
-            {categories.map((category, index) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`
-                  px-5 py-2 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-105 whitespace-nowrap
-                  ${activeCategory === category
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg scale-105' 
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-white/60'
-                  }
-                `}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="w-full max-w-4xl">
+            {/* Mobile: Horizontal scroll */}
+            <div className="md:hidden overflow-x-auto scrollbar-hide">
+              <div className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-2xl p-2 inline-flex gap-2 min-w-full">
+                {categories.map((category, index) => (
+                  <button
+                    key={category}
+                    onClick={() => setActiveCategory(category)}
+                    className={`
+                      px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 transform hover:scale-105 whitespace-nowrap flex-shrink-0
+                      ${activeCategory === category
+                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg scale-105' 
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-white/60'
+                      }
+                    `}
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+            
+            {/* Tablet & Desktop: Flex wrap */}
+            <div className="hidden md:flex bg-white/60 backdrop-blur-lg border border-white/40 rounded-2xl p-2 gap-2 flex-wrap justify-center">
+              {categories.map((category, index) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`
+                    px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-105 whitespace-nowrap
+                    ${activeCategory === category
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg scale-105' 
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-white/60'
+                    }
+                  `}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Services Grid - Responsive */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
           {filteredServices.map((service, index) => (
             <div
               key={service.title}
@@ -181,7 +206,7 @@ export function ServicesSection() {
               onMouseLeave={() => handleServiceHover(null)}
             >
               {/* Service Card */}
-              <div className="relative h-full bg-white/60 backdrop-blur-lg border border-white/40 rounded-3xl overflow-hidden transition-all duration-500 hover:bg-white/80 hover:scale-105 hover:shadow-2xl hover:shadow-black/10 cursor-pointer">
+              <div className="relative h-full bg-white/60 backdrop-blur-lg border border-white/40 rounded-2xl md:rounded-3xl overflow-hidden transition-all duration-500 hover:bg-white/80 hover:scale-105 hover:shadow-2xl hover:shadow-black/10 cursor-pointer">
                 
                 {/* Hover Particles */}
                 {hoveredService === index && (
@@ -204,7 +229,7 @@ export function ServicesSection() {
                 )}
 
                 {/* Service Header */}
-                <div className={`relative h-40 bg-gradient-to-br ${service.bgGradient} p-6 flex items-center justify-center overflow-hidden`}>
+                <div className={`relative h-36 sm:h-40 bg-gradient-to-br ${service.bgGradient} p-4 sm:p-6 flex items-center justify-center overflow-hidden`}>
                   {/* Background Pattern */}
                   <div className="absolute inset-0 opacity-20">
                     <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-10`} />
@@ -214,48 +239,48 @@ export function ServicesSection() {
                   {/* Service Icon */}
                   <div className="relative z-10 text-center">
                     <div className={`
-                      w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center mb-3 shadow-2xl
+                      w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${service.gradient} rounded-xl sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-3 shadow-2xl mx-auto
                       transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6
                     `}>
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={service.icon} />
                       </svg>
                     </div>
-                    <h3 className={`text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r ${service.gradient}`}>
+                    <h3 className={`text-base sm:text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r ${service.gradient}`}>
                       {service.title}
                     </h3>
                   </div>
 
                   {/* Category Badge */}
-                  <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full text-xs font-medium border border-white/30">
+                  <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
+                    <span className="px-2 sm:px-3 py-0.5 sm:py-1 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full text-[10px] sm:text-xs font-medium border border-white/30">
                       {service.category}
                     </span>
                   </div>
 
-                  {/* Stats */}
-                  <div className="absolute top-3 right-3 flex gap-1">
+                  {/* Stats - Hidden on small mobile, show on larger screens */}
+                  <div className="hidden xs:flex absolute top-2 sm:top-3 right-2 sm:right-3 gap-1">
                     {Object.entries(service.stats).slice(0, 2).map(([key, value], statIndex) => (
-                      <div key={statIndex} className="bg-white/20 backdrop-blur-sm rounded-lg p-1.5 border border-white/30">
-                        <div className={`text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r ${service.gradient}`}>
+                      <div key={statIndex} className="bg-white/20 backdrop-blur-sm rounded-lg p-1 sm:p-1.5 border border-white/30">
+                        <div className={`text-[10px] sm:text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r ${service.gradient}`}>
                           {value}
                         </div>
-                        <div className="text-[10px] text-gray-600 capitalize">{key}</div>
+                        <div className="text-[8px] sm:text-[10px] text-gray-600 capitalize leading-tight">{key}</div>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Service Content */}
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   {/* Description */}
-                  <p className="text-gray-600 mb-6 leading-relaxed text-sm line-clamp-3">
+                  <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-xs sm:text-sm line-clamp-3">
                     {service.description}
                   </p>
 
                   {/* Features */}
-                  <div className="mb-6">
-                    <div className="grid grid-cols-2 gap-2">
+                  <div className="mb-4 sm:mb-6">
+                    <div className="grid grid-cols-1 xs:grid-cols-2 gap-2">
                       {service.features.map((feature, featureIndex) => (
                         <div 
                           key={featureIndex} 
@@ -271,10 +296,10 @@ export function ServicesSection() {
                   {/* Action Button */}
                   <Button 
                     variant="outline" 
-                    className="w-full group-hover:bg-gradient-to-r group-hover:from-blue-50 group-hover:to-purple-50 group-hover:border-blue-200 group-hover:text-blue-600 transition-all duration-300 hover:scale-105"
+                    className="w-full text-xs sm:text-sm group-hover:bg-gradient-to-r group-hover:from-blue-50 group-hover:to-purple-50 group-hover:border-blue-200 group-hover:text-blue-600 transition-all duration-300 hover:scale-105"
                   >
                     Learn More
-                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Button>
@@ -284,50 +309,50 @@ export function ServicesSection() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="relative bg-white/40 backdrop-blur-xl border border-white/30 rounded-3xl p-12 overflow-hidden">
+        {/* Bottom CTA - Responsive */}
+        <div className="relative bg-white/40 backdrop-blur-xl border border-white/30 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)]" />
           
           <div className="relative z-10 text-center">
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-6">
-              <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-4 sm:mb-6">
+              <span className="text-xs sm:text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                 🚀 Ready to innovate?
               </span>
             </div>
             
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
               Let's build your{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                 next big idea
               </span>
             </h3>
             
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4">
               Partner with us to transform your vision into reality. Our expert team is ready to deliver exceptional solutions tailored to your unique needs.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/services">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
+              <Link href="/services" className="w-full sm:w-auto">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300"
+                  className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base rounded-xl sm:rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300"
                 >
                   Explore All Services
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link href="/contact" className="w-full sm:w-auto">
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="px-8 py-4 rounded-2xl border-2 hover:bg-white hover:scale-105 transition-all duration-300"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base rounded-xl sm:rounded-2xl border-2 hover:bg-white hover:scale-105 transition-all duration-300"
                 >
                   Get Started Today
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Button>

@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-20 md:pt-0">
       {/* Animated Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 -z-10">
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8b5cf6_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf6_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-10" />
 
@@ -13,7 +13,7 @@ export function HeroSection() {
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob" />
 
         {/* Enhanced Stylish Floating Card */}
-        <div className="absolute top-20 right-20 w-56 h-32 hidden lg:block animate-float group">
+        <div className="absolute top-32 right-4 lg:right-8 xl:right-20 w-56 h-32 hidden lg:block animate-float group z-10">
           {/* Main card */}
           <div className="relative w-full h-full bg-gradient-to-br from-white/20 via-blue-50/30 to-purple-50/20 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-500 overflow-hidden">
             {/* Animated gradient background */}
