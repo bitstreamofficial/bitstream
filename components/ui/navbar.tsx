@@ -14,11 +14,11 @@ import { Button } from './button';
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
   { name: 'Services', href: '/services' },
   { name: 'Projects', href: '/projects' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
+  // { name: 'Blog', href: '/blog' },
+  // { name: 'Contact', href: '/contact' },
+  { name: 'About', href: '/about' },
 ];
 
 export function Navbar() {

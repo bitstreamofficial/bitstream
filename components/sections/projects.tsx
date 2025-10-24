@@ -14,12 +14,27 @@ const featuredProjects = [
     technologies: ['React', 'Node.js', 'MongoDB', 'TypeScript'],
     category: 'Web Platform',
     status: 'Live',
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: '/projects/litaria',
+    githubUrl: 'https://github.com/bitstreamofficial/litaria',
     gradient: 'from-blue-600 to-purple-600',
     bgColor: 'from-blue-50 to-purple-50',
     stats: { users: '10K+', papers: '50K+' },
     icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+  },
+  {
+    name: 'UniRide',
+    description:
+      'Student ride-sharing platform connecting university communities for safe, affordable transportation.',
+    image: '/images/project-uniride.jpg',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    category: 'Mobile App',
+    status: 'Live',
+    liveUrl: '/projects/uniride',
+    githubUrl: 'https://github.com/bitstreamofficial/uniride',
+    gradient: 'from-green-500 to-teal-500',
+    bgColor: 'from-green-50 to-teal-50',
+    stats: { riders: '3K+', trips: '10K+' },
+    icon: 'M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l1.414 1.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0',
   },
   {
     name: 'DIU BusBuddy',
@@ -34,8 +49,8 @@ const featuredProjects = [
     ],
     category: 'Mobile App',
     status: 'Live',
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: '/projects/diu-busbuddy',
+    githubUrl: 'https://github.com/bitstreamofficial/diu-busbuddy',
     gradient: 'from-green-500 to-emerald-600',
     bgColor: 'from-green-50 to-emerald-50',
     stats: { students: '5K+', routes: '15+' },
@@ -55,8 +70,8 @@ const featuredProjects = [
     ],
     category: 'IoT Platform',
     status: 'Live',
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: '/projects/bems',
+    githubUrl: 'https://github.com/bitstreamofficial/bems',
     gradient: 'from-orange-500 to-red-600',
     bgColor: 'from-orange-50 to-red-50',
     stats: { buildings: '25+', savings: '30%' },
@@ -76,8 +91,8 @@ const featuredProjects = [
     ],
     category: 'Education Tech',
     status: 'Live',
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: '/projects/schedulearn',
+    githubUrl: 'https://github.com/bitstreamofficial/schedulearn',
     gradient: 'from-purple-600 to-pink-600',
     bgColor: 'from-purple-50 to-pink-50',
     stats: { schools: '50+', schedules: '1M+' },
@@ -91,8 +106,8 @@ const featuredProjects = [
     technologies: ['React', 'GraphQL', 'Redis', 'AWS', 'Real-time Updates'],
     category: 'Gamification',
     status: 'Live',
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: '/projects/diu-leaderboard',
+    githubUrl: 'https://github.com/bitstreamofficial/diu-leaderboard',
     gradient: 'from-indigo-500 to-blue-600',
     bgColor: 'from-indigo-50 to-blue-50',
     stats: { students: '8K+', competitions: '100+' },
@@ -112,8 +127,8 @@ const featuredProjects = [
     ],
     category: 'Environmental Tech',
     status: 'Development',
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: '/projects/ecotracker',
+    githubUrl: 'https://github.com/bitstreamofficial/ecotracker',
     gradient: 'from-teal-500 to-cyan-600',
     bgColor: 'from-teal-50 to-cyan-50',
     stats: { regions: '100+', data_points: '1M+' },
@@ -218,26 +233,28 @@ export function ProjectsSection() {
           className={`delay-600 mb-12 flex justify-center transition-all duration-1000 ${isInView ? 'animate-fade-in-up' : 'translate-y-8 opacity-0'}`}
         >
           <div className="w-full max-w-5xl">
-            {/* Mobile: Vertical layout */}
+            {/* Mobile: Horizontal Scrollable Menu */}
             <div className="md:hidden">
-              <div className="flex flex-col gap-2 rounded-2xl border border-white/40 bg-white/60 p-3 backdrop-blur-lg">
-                {categories.map((category, index) => (
-                  <button
-                    key={category}
-                    onClick={() => setActiveFilter(category)}
-                    className={`
-                      transform whitespace-nowrap rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-300 hover:scale-105
-                      ${
-                        activeFilter === category
-                          ? 'scale-105 bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                          : 'text-gray-600 hover:bg-white/60 hover:text-gray-900'
-                      }
-                    `}
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    {category}
-                  </button>
-                ))}
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-1.5 backdrop-blur-lg">
+                <div className="hide-scrollbar flex gap-2 overflow-x-auto">
+                  {categories.map((category, index) => (
+                    <button
+                      key={category}
+                      onClick={() => setActiveFilter(category)}
+                      className={`
+                        flex-shrink-0 transform whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300
+                        ${
+                          activeFilter === category
+                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                            : 'bg-white/40 text-gray-600 hover:bg-white/60 hover:text-gray-900'
+                        }
+                      `}
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -410,39 +427,47 @@ export function ProjectsSection() {
 
                   {/* Action Buttons */}
                   <div className="flex flex-col gap-3 xs:flex-row">
-                    <Button
-                      className={`
-                        flex-1 bg-gradient-to-r ${project.gradient} transform text-sm text-white shadow-md transition-all
-                        duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg active:scale-95 sm:text-base
-                      `}
-                    >
-                      <svg
-                        className="mr-2 h-4 w-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                    <Link href={project.liveUrl} className="flex-1">
+                      <Button
+                        className={`
+                          w-full bg-gradient-to-r ${project.gradient} transform text-sm text-white shadow-md transition-all
+                          duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg active:scale-95 sm:text-base
+                        `}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                      View Live
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="group border-2 px-4 text-sm transition-all duration-300 hover:scale-105 hover:border-gray-300 hover:bg-gray-50 sm:text-base"
+                        <svg
+                          className="mr-2 h-4 w-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                        View Project
+                      </Button>
+                    </Link>
+                    <Link
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <svg
-                        className="h-4 w-4 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
+                      <Button
+                        variant="outline"
+                        className="group border-2 px-4 text-sm transition-all duration-300 hover:scale-105 hover:border-gray-300 hover:bg-gray-50 sm:text-base"
                       >
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                      </svg>
-                    </Button>
+                        <svg
+                          className="h-4 w-4 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -327,3 +327,13 @@ body {
   background: linear-gradient(90deg, #3b82f6, #8b5cf6);
   color: white;
 }
+
+/* Hide scrollbar for horizontal scroll */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
