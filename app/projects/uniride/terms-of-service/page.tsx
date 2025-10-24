@@ -1,26 +1,95 @@
 'use client';
 
 import Link from 'next/link';
-import { UniRideNavbar } from '@/components/layout/uniride-navbar';
 
 export default function TermsOfServicePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <UniRideNavbar />
+      {/* Sticky Navigation */}
+      <nav className="fixed top-0 z-50 w-full border-b border-green-100 bg-white/95 shadow-sm backdrop-blur-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <Link
+              href="/projects/uniride"
+              className="flex items-center space-x-2"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-2xl">
+                🚴
+              </div>
+              <span className="text-2xl font-bold text-gray-900">
+                Uni<span className="text-green-600">Ride</span>
+              </span>
+            </Link>
+
+            <div className="hidden items-center space-x-8 md:flex">
+              <Link
+                href="/projects/uniride#features"
+                className="text-gray-600 transition-colors hover:text-green-600"
+              >
+                Features
+              </Link>
+              <Link
+                href="/projects/uniride#how-it-works"
+                className="text-gray-600 transition-colors hover:text-green-600"
+              >
+                How It Works
+              </Link>
+              <Link
+                href="/projects/uniride#testimonials"
+                className="text-gray-600 transition-colors hover:text-green-600"
+              >
+                Reviews
+              </Link>
+              <Link
+                href="/projects/uniride/privacy-policy"
+                className="text-gray-600 transition-colors hover:text-green-600"
+              >
+                Privacy
+              </Link>
+              <Link
+                href="/projects/uniride/terms-of-service"
+                className="text-gray-600 transition-colors hover:text-green-600"
+              >
+                Terms
+              </Link>
+              <button className="rounded-full bg-gradient-to-r from-green-500 to-green-600 px-6 py-2 font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                Download
+              </button>
+            </div>
+
+            {/* Mobile menu button */}
+            <button className="md:hidden">
+              <svg
+                className="h-6 w-6 text-gray-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16">
+      <section className="mt-16 bg-gradient-to-br from-green-50 via-white to-yellow-50 py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
               Terms of Service
             </h1>
             <p className="mb-4 text-xl text-gray-600">
-              Please read these terms carefully before using UniRide. By using
-              our service, you agree to be bound by these terms.
+              Please read these Terms of Service carefully before using UniRide.
+              By using our app or services, you agree to be bound by these Terms
+              and our Privacy Policy.
             </p>
-            <p className="text-sm text-gray-500">Last updated: December 2024</p>
+            <p className="text-sm text-gray-500">Last Updated: October 2025</p>
           </div>
         </div>
       </section>
@@ -35,21 +104,16 @@ export default function TermsOfServicePage() {
                 1. Agreement to Terms
               </h2>
               <p className="mb-4 text-gray-600">
-                These Terms of Service ("Terms") constitute a legally binding
-                agreement between you and UniRide ("Company," "we," "us," or
-                "our") regarding your use of the UniRide mobile application and
-                website (collectively, the "Service").
+                These Terms constitute a legally binding agreement between you
+                ("User," "you") and UniRide ("we," "us," or "our") regarding
+                your access to and use of the UniRide mobile application and
+                related services (collectively, the "Service").
               </p>
               <p className="mb-4 text-gray-600">
-                By accessing or using our Service, you agree to be bound by
-                these Terms. If you do not agree to these Terms, you may not
-                access or use our Service.
-              </p>
-              <p className="text-gray-600">
-                We reserve the right to modify these Terms at any time. We will
-                notify users of any material changes, and continued use of the
-                Service after such changes constitutes acceptance of the new
-                Terms.
+                If you do not agree to these Terms, please do not use UniRide.
+                We may modify these Terms occasionally, and updates will be
+                posted in the app. Continued use after updates means you accept
+                the revised Terms.
               </p>
             </div>
 
@@ -62,22 +126,23 @@ export default function TermsOfServicePage() {
               <ul className="mb-6 list-disc pl-6 text-gray-600">
                 <li>
                   Be at least 18 years old or the age of majority in your
-                  jurisdiction
+                  jurisdiction.
                 </li>
                 <li>
                   Be a currently enrolled university student with valid student
-                  credentials
+                  credentials.
                 </li>
-                <li>Have the legal capacity to enter into these Terms</li>
-                <li>Provide accurate and complete registration information</li>
-                <li>Maintain the security of your account credentials</li>
-                <li>Comply with all applicable laws and regulations</li>
+                <li>
+                  Provide accurate and verifiable registration information.
+                </li>
+                <li>
+                  Maintain the security of your account and comply with
+                  applicable laws.
+                </li>
               </ul>
               <p className="text-gray-600">
-                We reserve the right to verify your student status and may
-                request additional documentation. Accounts found to be in
-                violation of eligibility requirements will be suspended or
-                terminated.
+                UniRide reserves the right to verify your student identity and
+                suspend or terminate accounts that violate these requirements.
               </p>
             </div>
 
@@ -91,36 +156,28 @@ export default function TermsOfServicePage() {
                 3.1 Account Creation
               </h3>
               <p className="mb-4 text-gray-600">
-                You must create an account to use our Service. You agree to
-                provide accurate, current, and complete information during
-                registration and to update such information as necessary.
+                Users must create an account using valid credentials (email,
+                student ID, etc.). You agree to provide accurate, current, and
+                complete information.
               </p>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
                 3.2 Account Security
               </h3>
-              <p className="mb-4 text-gray-600">You are responsible for:</p>
-              <ul className="mb-6 list-disc pl-6 text-gray-600">
-                <li>
-                  Maintaining the confidentiality of your account credentials
-                </li>
-                <li>All activities that occur under your account</li>
-                <li>
-                  Immediately notifying us of any unauthorized use of your
-                  account
-                </li>
-                <li>
-                  Ensuring your contact information is current and accurate
-                </li>
-              </ul>
+              <p className="mb-4 text-gray-600">
+                You are responsible for maintaining your account confidentiality
+                and for all activities under your account. Notify UniRide
+                immediately if you suspect unauthorized access.
+              </p>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
                 3.3 Account Termination
               </h3>
               <p className="mb-6 text-gray-600">
-                You may terminate your account at any time. We may suspend or
-                terminate your account for violations of these Terms, illegal
-                activities, or other reasons at our discretion.
+                You may delete your account anytime through the app. UniRide
+                reserves the right to suspend or terminate accounts violating
+                these Terms, engaging in fraudulent activity, or compromising
+                user safety.
               </p>
             </div>
 
@@ -130,22 +187,26 @@ export default function TermsOfServicePage() {
                 4. Service Description
               </h2>
               <p className="mb-4 text-gray-600">
-                UniRide is a ride-sharing platform that connects university
-                students for shared transportation. Our Service includes:
+                UniRide is a bike-based ride-sharing platform designed
+                exclusively for university students. It connects riders (bike
+                owners) with passengers traveling on similar routes.
               </p>
+              <p className="mb-4 text-gray-600">Our Service includes:</p>
               <ul className="mb-6 list-disc pl-6 text-gray-600">
                 <li>
-                  Matching riders with drivers based on routes and preferences
+                  Matching riders and passengers based on routes and pickup
+                  points
                 </li>
-                <li>Facilitating communication between users</li>
-                <li>Processing payments for shared ride costs</li>
-                <li>Providing safety features and support</li>
-                <li>Maintaining user profiles and ride history</li>
+                <li>Facilitating in-app communication between users</li>
+                <li>Displaying verified profiles and ride histories</li>
+                <li>
+                  Providing safety verification (email & license verification)
+                </li>
+                <li>Offering route-based fare charts for reference</li>
               </ul>
               <p className="text-gray-600">
-                UniRide is a technology platform that facilitates connections
-                between users. We do not provide transportation services
-                directly and are not a transportation carrier.
+                UniRide is not a transportation provider, carrier, or logistics
+                company. We only facilitate connections between users.
               </p>
             </div>
 
@@ -160,19 +221,14 @@ export default function TermsOfServicePage() {
               </h3>
               <p className="mb-4 text-gray-600">You agree to:</p>
               <ul className="mb-6 list-disc pl-6 text-gray-600">
-                <li>Use the Service only for lawful purposes</li>
-                <li>Treat all users with respect and courtesy</li>
                 <li>
-                  Provide accurate information about rides and availability
+                  Use the app only for legitimate, non-commercial,
+                  student-to-student ride sharing.
                 </li>
-                <li>Arrive on time for scheduled rides</li>
-                <li>Communicate promptly about any changes or cancellations</li>
-                <li>
-                  Follow all traffic laws and safety regulations when driving
-                </li>
-                <li>
-                  Maintain appropriate insurance coverage if offering rides
-                </li>
+                <li>Treat all users with respect and courtesy.</li>
+                <li>Provide accurate pickup and destination information.</li>
+                <li>Arrive on time and communicate changes promptly.</li>
+                <li>Follow all traffic and university safety rules.</li>
               </ul>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
@@ -180,102 +236,95 @@ export default function TermsOfServicePage() {
               </h3>
               <p className="mb-4 text-gray-600">You may not:</p>
               <ul className="mb-6 list-disc pl-6 text-gray-600">
-                <li>Use the Service for commercial transportation purposes</li>
-                <li>Harass, threaten, or discriminate against other users</li>
-                <li>Share false or misleading information</li>
+                <li>Use UniRide for commercial or delivery purposes.</li>
+                <li>Provide false information or impersonate others.</li>
                 <li>
-                  Use the Service while under the influence of drugs or alcohol
+                  Engage in harassment, discrimination, or unsafe behavior.
                 </li>
-                <li>Violate any applicable laws or regulations</li>
-                <li>Attempt to circumvent safety or security measures</li>
-                <li>Create multiple accounts or impersonate others</li>
-                <li>Use automated systems to access the Service</li>
+                <li>
+                  Use the app while under the influence of alcohol or drugs.
+                </li>
+                <li>
+                  Attempt to hack, misuse, or reverse-engineer UniRide systems.
+                </li>
+                <li>Create multiple or fake accounts.</li>
               </ul>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                5.3 Driver-Specific Responsibilities
+                5.3 Rider Responsibilities
               </h3>
-              <p className="mb-4 text-gray-600">
-                If you offer rides, you must:
-              </p>
+              <p className="mb-4 text-gray-600">If you offer rides:</p>
               <ul className="mb-6 list-disc pl-6 text-gray-600">
                 <li>
-                  Possess a valid driver's license and vehicle registration
+                  Maintain a valid driver's license and bike registration.
                 </li>
-                <li>Maintain appropriate vehicle insurance</li>
-                <li>Ensure your vehicle is safe and roadworthy</li>
-                <li>Follow all traffic laws and drive safely</li>
-                <li>Not exceed vehicle capacity limits</li>
-                <li>Verify passenger identities before departure</li>
+                <li>Ensure your bike is in safe working condition.</li>
+                <li>
+                  Verify your passenger's identity before starting a ride.
+                </li>
+                <li>
+                  Comply with all traffic laws and insurance requirements.
+                </li>
+                <li>Carry only one passenger per ride (bike policy).</li>
               </ul>
             </div>
 
             {/* Payments and Fees */}
             <div className="mb-12">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                6. Payments and Fees
+                6. Payments and Fares
               </h2>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                6.1 Cost Sharing
+                6.1 Cash-Only System
               </h3>
               <p className="mb-6 text-gray-600">
-                Riders agree to pay their fair share of ride costs as determined
-                by the driver and agreed upon before the ride. Costs may include
-                fuel, tolls, parking, and other reasonable expenses.
+                Currently, UniRide supports cash payments only. Fares are fixed
+                according to a pre-defined route and stop-based chart set by
+                UniRide and displayed in the app.
               </p>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                6.2 Payment Processing
+                6.2 Cost Sharing
               </h3>
               <p className="mb-6 text-gray-600">
-                Payments are processed through secure third-party payment
-                providers. We may charge a small service fee to cover platform
-                costs. All fees will be clearly disclosed before payment.
+                Riders and passengers must mutually agree on the ride before
+                starting. Riders may not charge beyond the standard fare chart.
               </p>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
                 6.3 Refunds and Disputes
               </h3>
               <p className="mb-6 text-gray-600">
-                Refund policies for cancelled rides will be clearly
-                communicated. Payment disputes should be reported immediately
-                through our support system.
+                Since payments are handled directly between students, UniRide
+                does not process refunds. Any disputes should be reported to
+                UniRide Support for investigation.
               </p>
             </div>
 
             {/* Safety and Insurance */}
             <div className="mb-12">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                7. Safety and Insurance
+                7. Safety and Verification
               </h2>
-
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                7.1 Safety Measures
-              </h3>
-              <p className="mb-6 text-gray-600">
-                While we implement various safety features, users are ultimately
-                responsible for their own safety. We encourage users to verify
-                identities, share ride details with trusted contacts, and trust
-                their instincts.
+              <p className="mb-4 text-gray-600">
+                UniRide verifies users via email and license verification (for
+                riders).
               </p>
-
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                7.2 Insurance Coverage
-              </h3>
-              <p className="mb-6 text-gray-600">
-                Drivers must maintain appropriate vehicle insurance. UniRide
-                does not provide insurance coverage for rides. Users should
-                verify insurance coverage before participating in rides.
+              <p className="mb-4 text-gray-600">
+                Both parties should confirm each other's identity before a ride.
               </p>
-
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                7.3 Emergency Procedures
-              </h3>
-              <p className="mb-6 text-gray-600">
-                In case of emergency, contact local emergency services
-                immediately. Report any safety incidents to UniRide support as
-                soon as possible.
+              <p className="mb-4 text-gray-600">
+                UniRide encourages users to share trip details with trusted
+                contacts.
+              </p>
+              <p className="mb-4 text-gray-600">
+                In emergencies, contact local emergency services first and then
+                report the issue to UniRide support.
+              </p>
+              <p className="text-gray-600">
+                UniRide is not responsible for the personal conduct of users
+                during rides.
               </p>
             </div>
 
@@ -285,16 +334,10 @@ export default function TermsOfServicePage() {
                 8. Intellectual Property
               </h2>
               <p className="mb-6 text-gray-600">
-                The Service and its original content, features, and
-                functionality are owned by UniRide and are protected by
-                international copyright, trademark, patent, trade secret, and
-                other intellectual property laws.
-              </p>
-              <p className="mb-6 text-gray-600">
-                You may not copy, modify, distribute, sell, or lease any part of
-                our Service without our prior written consent. You also may not
-                reverse engineer or attempt to extract the source code of our
-                software.
+                All content, features, and software associated with UniRide are
+                the property of UniRide and protected by applicable intellectual
+                property laws. You may not copy, modify, sell, or distribute our
+                content or attempt to extract source code.
               </p>
             </div>
 
@@ -304,10 +347,9 @@ export default function TermsOfServicePage() {
                 9. Privacy
               </h2>
               <p className="mb-6 text-gray-600">
-                Your privacy is important to us. Please review our Privacy
-                Policy, which also governs your use of the Service, to
-                understand our practices regarding the collection and use of
-                your information.
+                Your use of UniRide is governed by our Privacy Policy, which
+                explains how we collect, use, and safeguard your data. By using
+                UniRide, you consent to the practices described in that policy.
               </p>
             </div>
 
@@ -317,20 +359,18 @@ export default function TermsOfServicePage() {
                 10. Disclaimers
               </h2>
               <p className="mb-4 text-gray-600">
-                THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT
-                WARRANTIES OF ANY KIND. WE DISCLAIM ALL WARRANTIES, EXPRESS OR
-                IMPLIED, INCLUDING:
+                UniRide provides its services "as is" and "as available." We do
+                not guarantee uninterrupted service or the accuracy of
+                user-generated content.
               </p>
+              <p className="mb-4 text-gray-600">We are not responsible for:</p>
               <ul className="mb-6 list-disc pl-6 text-gray-600">
-                <li>MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</li>
-                <li>NON-INFRINGEMENT OF THIRD-PARTY RIGHTS</li>
-                <li>UNINTERRUPTED OR ERROR-FREE SERVICE</li>
-                <li>SECURITY OF DATA TRANSMISSION</li>
-                <li>ACCURACY OR RELIABILITY OF USER-GENERATED CONTENT</li>
+                <li>The conduct or reliability of users</li>
+                <li>Any accidents, delays, or losses during rides</li>
+                <li>The condition of vehicles used</li>
               </ul>
               <p className="text-gray-600">
-                We do not guarantee the safety, reliability, or conduct of
-                users. You use the Service at your own risk.
+                Users assume all risk when using the Service.
               </p>
             </div>
 
@@ -340,15 +380,16 @@ export default function TermsOfServicePage() {
                 11. Limitation of Liability
               </h2>
               <p className="mb-6 text-gray-600">
-                TO THE MAXIMUM EXTENT PERMITTED BY LAW, UNIRIDE SHALL NOT BE
-                LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR
-                PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS,
-                DATA, USE, OR GOODWILL, ARISING FROM YOUR USE OF THE SERVICE.
+                To the fullest extent permitted by law, UniRide shall not be
+                liable for:
               </p>
+              <ul className="mb-6 list-disc pl-6 text-gray-600">
+                <li>Indirect, incidental, or consequential damages</li>
+                <li>Loss of profits, data, or goodwill</li>
+              </ul>
               <p className="mb-6 text-gray-600">
-                OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR
-                RELATING TO THE SERVICE SHALL NOT EXCEED THE AMOUNT YOU PAID TO
-                US IN THE TWELVE MONTHS PRECEDING THE CLAIM.
+                Our total liability for any claim shall not exceed the amount
+                paid (if any) to UniRide in the 12 months preceding the event.
               </p>
             </div>
 
@@ -358,12 +399,15 @@ export default function TermsOfServicePage() {
                 12. Indemnification
               </h2>
               <p className="mb-6 text-gray-600">
-                You agree to indemnify, defend, and hold harmless UniRide and
-                its officers, directors, employees, and agents from any claims,
-                damages, losses, or expenses arising from your use of the
-                Service, violation of these Terms, or infringement of any rights
-                of another party.
+                You agree to defend, indemnify, and hold harmless UniRide, its
+                team members, and affiliates from any claims, damages, or
+                liabilities arising from:
               </p>
+              <ul className="mb-6 list-disc pl-6 text-gray-600">
+                <li>Your misuse of the Service</li>
+                <li>Violation of these Terms</li>
+                <li>Infringement of third-party rights</li>
+              </ul>
             </div>
 
             {/* Dispute Resolution */}
@@ -371,31 +415,17 @@ export default function TermsOfServicePage() {
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
                 13. Dispute Resolution
               </h2>
-
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                13.1 Informal Resolution
-              </h3>
-              <p className="mb-6 text-gray-600">
-                Before pursuing formal dispute resolution, we encourage you to
-                contact our support team to resolve any issues informally.
+              <p className="mb-4 text-gray-600">
+                Before pursuing legal action, contact our support team for
+                informal resolution.
               </p>
-
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                13.2 Binding Arbitration
-              </h3>
-              <p className="mb-6 text-gray-600">
-                Any disputes arising from these Terms or your use of the Service
-                will be resolved through binding arbitration rather than in
-                court, except for certain types of disputes as specified by law.
+              <p className="mb-4 text-gray-600">
+                If a dispute persists, it will be resolved through binding
+                arbitration under applicable laws.
               </p>
-
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                13.3 Class Action Waiver
-              </h3>
               <p className="mb-6 text-gray-600">
-                You agree that disputes will be resolved on an individual basis
-                and waive any right to participate in class action lawsuits or
-                class-wide arbitration.
+                You agree to waive participation in any class action or group
+                lawsuit.
               </p>
             </div>
 
@@ -405,10 +435,9 @@ export default function TermsOfServicePage() {
                 14. Governing Law
               </h2>
               <p className="mb-6 text-gray-600">
-                These Terms are governed by and construed in accordance with the
-                laws of [Jurisdiction], without regard to conflict of law
-                principles. Any legal action or proceeding shall be brought
-                exclusively in the courts of [Jurisdiction].
+                These Terms are governed by the laws of Bangladesh, without
+                regard to conflict of law principles. Any disputes will be
+                handled exclusively in the courts located in Dhaka, Bangladesh.
               </p>
             </div>
 
@@ -418,10 +447,9 @@ export default function TermsOfServicePage() {
                 15. Severability
               </h2>
               <p className="mb-6 text-gray-600">
-                If any provision of these Terms is found to be unenforceable or
-                invalid, that provision will be limited or eliminated to the
-                minimum extent necessary so that the remaining Terms will remain
-                in full force and effect.
+                If any provision of these Terms is deemed invalid or
+                unenforceable, the remaining provisions will continue in full
+                effect.
               </p>
             </div>
 
@@ -431,23 +459,26 @@ export default function TermsOfServicePage() {
                 16. Contact Information
               </h2>
               <p className="mb-4 text-gray-600">
-                If you have any questions about these Terms of Service, please
-                contact us:
+                If you have questions or concerns, contact us:
               </p>
-              <div className="rounded-lg bg-gray-50 p-6">
-                <p className="mb-2 text-gray-600">
-                  <strong>Email:</strong> legal@uniride.com
+              <div className="space-y-2 text-gray-600">
+                <p className="flex items-center">
+                  <span className="mr-2">📧</span>
+                  <a
+                    href="mailto:asteriskshq@gmail.com"
+                    className="text-blue-600 hover:underline"
+                  >
+                    asteriskshq@gmail.com
+                  </a>
                 </p>
-                <p className="mb-2 text-gray-600">
-                  <strong>Address:</strong> UniRide Legal Team, [University
-                  Address]
+                <p className="flex items-center">
+                  <span className="mr-2">📍</span>
+                  Daffodil Smart City, Ashulia, Dhaka
                 </p>
-                <p className="mb-2 text-gray-600">
-                  <strong>Phone:</strong> +1 (555) 123-4567
-                </p>
-                <p className="text-gray-600">
-                  <strong>Response Time:</strong> We aim to respond to all legal
-                  inquiries within 30 days
+
+                <p className="flex items-center">
+                  <span className="mr-2">🕒</span>
+                  Response Time: Within 7 business days
                 </p>
               </div>
             </div>
@@ -458,13 +489,12 @@ export default function TermsOfServicePage() {
                 Acknowledgment
               </h2>
               <p className="mb-4 text-blue-800">
-                By using UniRide, you acknowledge that you have read,
-                understood, and agree to be bound by these Terms of Service.
+                By using UniRide, you confirm that you have read, understood,
+                and agree to these Terms of Service.
               </p>
               <p className="text-blue-800">
                 These Terms constitute the entire agreement between you and
-                UniRide regarding your use of the Service and supersede all
-                prior agreements and understandings.
+                UniRide regarding your use of the Service.
               </p>
             </div>
           </div>
@@ -472,58 +502,145 @@ export default function TermsOfServicePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 py-12 text-white">
+      <footer className="bg-gray-900 py-16 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+            {/* Brand */}
             <div>
-              <h3 className="mb-4 text-2xl font-bold">UniRide</h3>
-              <p className="text-gray-400">
-                Safe, affordable ride-sharing for university students.
+              <div className="mb-4 flex items-center space-x-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-2xl">
+                  🚴
+                </div>
+                <span className="text-2xl font-bold">
+                  Uni<span className="text-green-400">Ride</span>
+                </span>
+              </div>
+              <p className="mb-6 text-gray-400">
+                Made by students, for students. Safe, affordable bike
+                ride-sharing for campus communities.
               </p>
+              {/* Social Icons */}
+              <div className="flex space-x-4">
+                <a
+                  href="#"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-xl transition-colors hover:bg-green-600"
+                >
+                  📘
+                </a>
+                <a
+                  href="#"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-xl transition-colors hover:bg-green-600"
+                >
+                  📷
+                </a>
+                <a
+                  href="#"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-xl transition-colors hover:bg-green-600"
+                >
+                  💼
+                </a>
+              </div>
             </div>
 
+            {/* Quick Links */}
             <div>
               <h4 className="mb-4 text-lg font-semibold">Quick Links</h4>
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="/projects/uniride"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    href="/projects/uniride#features"
+                    className="text-gray-400 transition-colors hover:text-green-400"
                   >
-                    Home
+                    Features
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/projects/uniride/privacy-policy"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    href="/projects/uniride#how-it-works"
+                    className="text-gray-400 transition-colors hover:text-green-400"
                   >
-                    Privacy Policy
+                    How It Works
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/projects/uniride#testimonials"
+                    className="text-gray-400 transition-colors hover:text-green-400"
+                  >
+                    Testimonials
                   </Link>
                 </li>
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    className="text-gray-400 transition-colors hover:text-green-400"
                   >
-                    Support
+                    Join Our Community
                   </a>
                 </li>
               </ul>
             </div>
 
+            {/* Legal */}
+            <div>
+              <h4 className="mb-4 text-lg font-semibold">Legal</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/projects/uniride/privacy-policy"
+                    className="text-gray-400 transition-colors hover:text-green-400"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/projects/uniride/terms-of-service"
+                    className="text-gray-400 transition-colors hover:text-green-400"
+                  >
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 transition-colors hover:text-green-400"
+                  >
+                    Safety Guidelines
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
             <div>
               <h4 className="mb-4 text-lg font-semibold">Contact</h4>
-              <ul className="space-y-2">
-                <li className="text-gray-400">legal@uniride.com</li>
-                <li className="text-gray-400">+1 (555) 123-4567</li>
+              <ul className="space-y-2 text-gray-400">
+                <li className="flex items-center space-x-2">
+                  <span>📧</span>
+                  <a
+                    href="mailto:asteriskshq@gmail.com"
+                    className="hover:text-green-400"
+                  >
+                    asteriskshq@gmail.com
+                  </a>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span>📍</span>
+                  <span>Daffodil Smart City, Dhaka</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span>📞</span>
+                  <span>+8801797003614</span>
+                </li>
               </ul>
             </div>
           </div>
 
-          <div className="mt-8 border-t border-gray-800 pt-8 text-center">
+          <div className="mt-12 border-t border-gray-800 pt-8 text-center">
             <p className="text-gray-400">
-              © 2024 UniRide. All rights reserved.
+              © 2025 UniRide. All rights reserved. Made with ❤️ by students,
+              for students.
             </p>
           </div>
         </div>

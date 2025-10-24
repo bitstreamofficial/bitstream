@@ -1,26 +1,97 @@
 'use client';
 
 import Link from 'next/link';
-import { UniRideNavbar } from '@/components/layout/uniride-navbar';
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <UniRideNavbar />
+      {/* Sticky Navigation */}
+      <nav className="fixed top-0 z-50 w-full border-b border-green-100 bg-white/95 shadow-sm backdrop-blur-sm">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <Link
+              href="/projects/uniride"
+              className="flex items-center space-x-2"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-2xl">
+                🚴
+              </div>
+              <span className="text-2xl font-bold text-gray-900">
+                Uni<span className="text-green-600">Ride</span>
+              </span>
+            </Link>
+
+            <div className="hidden items-center space-x-8 md:flex">
+              <Link
+                href="/projects/uniride#features"
+                className="text-gray-600 transition-colors hover:text-green-600"
+              >
+                Features
+              </Link>
+              <Link
+                href="/projects/uniride#how-it-works"
+                className="text-gray-600 transition-colors hover:text-green-600"
+              >
+                How It Works
+              </Link>
+              <Link
+                href="/projects/uniride#testimonials"
+                className="text-gray-600 transition-colors hover:text-green-600"
+              >
+                Reviews
+              </Link>
+              <Link
+                href="/projects/uniride/privacy-policy"
+                className="text-gray-600 transition-colors hover:text-green-600"
+              >
+                Privacy
+              </Link>
+              <Link
+                href="/projects/uniride/terms-of-service"
+                className="text-gray-600 transition-colors hover:text-green-600"
+              >
+                Terms
+              </Link>
+              <button className="rounded-full bg-gradient-to-r from-green-500 to-green-600 px-6 py-2 font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                Download
+              </button>
+            </div>
+
+            {/* Mobile menu button */}
+            <button className="md:hidden">
+              <svg
+                className="h-6 w-6 text-gray-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16">
+      <section className="mt-16 bg-gradient-to-br from-green-50 via-white to-yellow-50 py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
               Privacy Policy
             </h1>
             <p className="mb-4 text-xl text-gray-600">
-              Your privacy is important to us. This policy explains how UniRide
-              collects, uses, and protects your information.
+              At UniRide, your privacy is our top priority. This Privacy Policy
+              explains how we collect, use, and protect your personal
+              information when you use our app and services.
             </p>
-            <p className="text-sm text-gray-500">Last updated: December 2024</p>
+            <p className="text-sm text-gray-500">
+              Effective Date: October 2025
+            </p>
           </div>
         </div>
       </section>
@@ -29,24 +100,31 @@ export default function PrivacyPolicyPage() {
       <section className="py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
-            {/* Introduction */}
+            {/* Data Controller */}
+            <div className="mb-12">
+              <p className="text-gray-600">
+                UniRide operates as the data controller responsible for
+                processing your personal information under applicable data
+                protection laws.
+              </p>
+            </div>
+
+            {/* Consent & Permissions */}
             <div className="mb-12">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                1. Introduction
+                1. Consent & Permissions
               </h2>
               <p className="mb-4 text-gray-600">
-                Welcome to UniRide ("we," "our," or "us"). This Privacy Policy
-                explains how we collect, use, disclose, and safeguard your
-                information when you use our mobile application and website
-                (collectively, the "Service"). We are committed to protecting
-                your privacy and ensuring the security of your personal
-                information.
+                By using UniRide, you agree to the collection and use of your
+                information as described in this policy.
+              </p>
+              <p className="mb-4 text-gray-600">
+                We only collect data necessary to operate the app effectively.
               </p>
               <p className="text-gray-600">
-                By using our Service, you agree to the collection and use of
-                information in accordance with this Privacy Policy. If you do
-                not agree with our policies and practices, please do not use our
-                Service.
+                By granting permissions (such as location or notifications), you
+                allow UniRide to provide its core services. You can manage or
+                revoke these permissions anytime through your device settings.
               </p>
             </div>
 
@@ -55,85 +133,89 @@ export default function PrivacyPolicyPage() {
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
                 2. Information We Collect
               </h2>
+              <p className="mb-6 text-gray-600">
+                We collect the following information to improve our service and
+                ensure safety for all users:
+              </p>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
                 2.1 Personal Information
               </h3>
-              <p className="mb-4 text-gray-600">
-                We may collect the following personal information:
-              </p>
               <ul className="mb-6 list-disc pl-6 text-gray-600">
                 <li>
-                  Name and contact information (email address, phone number)
+                  Name, email address, phone number, and university ID (for
+                  verification)
                 </li>
-                <li>University affiliation and student ID verification</li>
-                <li>Profile picture and basic demographic information</li>
-                <li>
-                  Payment information (processed securely through third-party
-                  providers)
-                </li>
-                <li>Emergency contact information</li>
+                <li>Profile photo and gender (optional)</li>
               </ul>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                2.2 Location Information
+                2.2 Location Data
               </h3>
-              <p className="mb-6 text-gray-600">
-                With your consent, we collect real-time location data to provide
-                ride-sharing services, including pickup and drop-off locations,
-                route optimization, and safety features. You can disable
-                location sharing at any time through your device settings.
-              </p>
+              <ul className="mb-6 list-disc pl-6 text-gray-600">
+                <li>
+                  Real-time location when sharing rides or searching for nearby
+                  rides
+                </li>
+                <li>Pickup and destination points for ride requests</li>
+              </ul>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
-                2.3 Usage Information
+                2.3 Vehicle Information (For Riders)
               </h3>
-              <p className="mb-4 text-gray-600">
-                We automatically collect information about your use of our
-                Service:
-              </p>
               <ul className="mb-6 list-disc pl-6 text-gray-600">
-                <li>App usage patterns and preferences</li>
                 <li>
-                  Device information (device type, operating system, unique
-                  device identifiers)
+                  Bike registration details and license information (for
+                  verification)
                 </li>
-                <li>Log data (IP address, access times, pages viewed)</li>
-                <li>Ride history and patterns</li>
               </ul>
 
               <h3 className="mb-3 text-xl font-semibold text-gray-900">
                 2.4 Communication Data
               </h3>
-              <p className="mb-6 text-gray-600">
-                We may collect information from your communications with other
-                users through our platform, including messages and feedback, to
-                ensure safety and improve our services.
+              <ul className="mb-4 list-disc pl-6 text-gray-600">
+                <li>
+                  Messages and chats between riders and passengers (stored
+                  securely)
+                </li>
+              </ul>
+              <p className="text-gray-600">
+                We do not monitor or access private messages unless required for
+                safety investigations, dispute resolution, or legal compliance.
+              </p>
+            </div>
+
+            {/* Payment Information */}
+            <div className="mb-12">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+                3. Payment Information
+              </h2>
+              <p className="mb-4 text-gray-600">
+                Currently, UniRide supports cash payments only.
+              </p>
+              <p className="text-gray-600">
+                In future updates, secure digital payment options may be
+                introduced, and this policy will be updated accordingly.
               </p>
             </div>
 
             {/* How We Use Information */}
             <div className="mb-12">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                3. How We Use Your Information
+                4. How We Use Your Information
               </h2>
-              <p className="mb-4 text-gray-600">
-                We use the collected information for the following purposes:
-              </p>
+              <p className="mb-4 text-gray-600">Your information is used to:</p>
               <ul className="mb-6 list-disc pl-6 text-gray-600">
-                <li>Provide and maintain our ride-sharing services</li>
-                <li>Verify student status and university affiliation</li>
-                <li>Match riders with drivers and facilitate connections</li>
-                <li>Process payments and manage transactions</li>
-                <li>Ensure safety and security of all users</li>
-                <li>Provide customer support and respond to inquiries</li>
-                <li>
-                  Send important notifications about rides and account updates
-                </li>
-                <li>Improve our services and develop new features</li>
-                <li>Comply with legal obligations and enforce our terms</li>
-                <li>Prevent fraud and unauthorized activities</li>
+                <li>Connect passengers with available riders</li>
+                <li>Verify user identities and maintain safety</li>
+                <li>Display your posts or ride requests</li>
+                <li>Send ride updates, notifications, and support messages</li>
+                <li>Improve app features and performance</li>
               </ul>
+              <p className="text-gray-600">
+                We never sell or share your personal data with third-party
+                marketers.
+              </p>
             </div>
 
             {/* Information Sharing */}
@@ -188,24 +270,12 @@ export default function PrivacyPolicyPage() {
                 5. Data Security
               </h2>
               <p className="mb-4 text-gray-600">
-                We implement appropriate technical and organizational security
-                measures to protect your personal information against
-                unauthorized access, alteration, disclosure, or destruction.
-                These measures include:
+                We use advanced encryption and secure authentication to protect
+                your data.
               </p>
-              <ul className="mb-6 list-disc pl-6 text-gray-600">
-                <li>Encryption of data in transit and at rest</li>
-                <li>Regular security assessments and updates</li>
-                <li>Access controls and authentication mechanisms</li>
-                <li>
-                  Secure payment processing through PCI-compliant providers
-                </li>
-                <li>Regular backup and disaster recovery procedures</li>
-              </ul>
               <p className="text-gray-600">
-                However, no method of transmission over the internet or
-                electronic storage is 100% secure. While we strive to protect
-                your information, we cannot guarantee absolute security.
+                Access is restricted only to authorized UniRide personnel and
+                trusted service providers.
               </p>
             </div>
 
@@ -214,116 +284,85 @@ export default function PrivacyPolicyPage() {
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
                 6. Data Retention
               </h2>
-              <p className="mb-6 text-gray-600">
-                We retain your personal information for as long as necessary to
-                provide our services and fulfill the purposes outlined in this
-                Privacy Policy. We may retain certain information for longer
-                periods as required by law or for legitimate business purposes,
-                such as fraud prevention and safety.
+              <p className="mb-4 text-gray-600">
+                We retain your data only as long as necessary for providing
+                services and fulfilling legal obligations.
               </p>
               <p className="text-gray-600">
-                When you delete your account, we will delete or anonymize your
-                personal information within a reasonable timeframe, except where
-                retention is required by law.
+                You can request account deletion anytime, and your data will be
+                permanently removed within 30 days.
+              </p>
+            </div>
+
+            {/* Cookies & Tracking */}
+            <div className="mb-12">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+                7. Cookies & Tracking
+              </h2>
+              <p className="mb-4 text-gray-600">
+                UniRide may use cookies or similar technologies to analyze app
+                usage and enhance performance.
+              </p>
+              <p className="text-gray-600">
+                You can disable cookies through your browser or device settings.
               </p>
             </div>
 
             {/* Your Rights */}
             <div className="mb-12">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                7. Your Privacy Rights
+                8. Your Rights
+              </h2>
+              <p className="mb-4 text-gray-600">You have the right to:</p>
+              <ul className="mb-6 list-disc pl-6 text-gray-600">
+                <li>Access or update your personal data</li>
+                <li>Request account deletion</li>
+                <li>Withdraw consent for data processing</li>
+                <li>Contact us regarding privacy concerns</li>
+              </ul>
+            </div>
+
+            {/* Information Sharing */}
+            <div className="mb-12">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+                9. Information Sharing
               </h2>
               <p className="mb-4 text-gray-600">
-                You have the following rights regarding your personal
-                information:
+                Your data may be shared only when:
               </p>
               <ul className="mb-6 list-disc pl-6 text-gray-600">
+                <li>Required by law or legal authority</li>
+                <li>Necessary for user safety or fraud prevention</li>
                 <li>
-                  <strong>Access:</strong> Request a copy of the personal
-                  information we hold about you
-                </li>
-                <li>
-                  <strong>Correction:</strong> Request correction of inaccurate
-                  or incomplete information
-                </li>
-                <li>
-                  <strong>Deletion:</strong> Request deletion of your personal
-                  information
-                </li>
-                <li>
-                  <strong>Portability:</strong> Request transfer of your data to
-                  another service
-                </li>
-                <li>
-                  <strong>Restriction:</strong> Request limitation of processing
-                  of your information
-                </li>
-                <li>
-                  <strong>Objection:</strong> Object to processing of your
-                  information for certain purposes
-                </li>
-                <li>
-                  <strong>Withdrawal of Consent:</strong> Withdraw consent for
-                  data processing where applicable
+                  Needed to provide core services (e.g., Firebase for
+                  authentication and storage)
                 </li>
               </ul>
+            </div>
+
+            {/* Cross-Border Data Transfers */}
+            <div className="mb-12">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+                10. Cross-Border Data Transfers
+              </h2>
               <p className="text-gray-600">
-                To exercise these rights, please contact us using the
-                information provided in the "Contact Us" section below.
+                Your information may occasionally be transferred and processed
+                in other regions, where data protection laws may differ. We
+                ensure appropriate safeguards are in place.
               </p>
             </div>
 
-            {/* Children's Privacy */}
+            {/* Updates to This Policy */}
             <div className="mb-12">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                8. Children's Privacy
+                11. Updates to This Policy
               </h2>
-              <p className="text-gray-600">
-                Our Service is intended for university students who are
-                typically 18 years or older. We do not knowingly collect
-                personal information from children under 13. If we become aware
-                that we have collected personal information from a child under
-                13, we will take steps to delete such information promptly.
+              <p className="mb-4 text-gray-600">
+                We may update this Privacy Policy to reflect new features or
+                legal requirements.
               </p>
-            </div>
-
-            {/* International Transfers */}
-            <div className="mb-12">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                9. International Data Transfers
-              </h2>
               <p className="text-gray-600">
-                Your information may be transferred to and processed in
-                countries other than your country of residence. We ensure that
-                such transfers comply with applicable data protection laws and
-                implement appropriate safeguards to protect your information.
-              </p>
-            </div>
-
-            {/* Third-Party Links */}
-            <div className="mb-12">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                10. Third-Party Links and Services
-              </h2>
-              <p className="text-gray-600">
-                Our Service may contain links to third-party websites or
-                services. We are not responsible for the privacy practices of
-                these third parties. We encourage you to review their privacy
-                policies before providing any personal information.
-              </p>
-            </div>
-
-            {/* Changes to Privacy Policy */}
-            <div className="mb-12">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                11. Changes to This Privacy Policy
-              </h2>
-              <p className="text-gray-600">
-                We may update this Privacy Policy from time to time. We will
-                notify you of any material changes by posting the new Privacy
-                Policy on this page and updating the "Last updated" date. We
-                encourage you to review this Privacy Policy periodically for any
-                changes.
+                Any changes will be posted in the app with a new effective date.
               </p>
             </div>
 
@@ -333,37 +372,16 @@ export default function PrivacyPolicyPage() {
                 12. Contact Us
               </h2>
               <p className="mb-4 text-gray-600">
-                If you have any questions about this Privacy Policy or our
-                privacy practices, please contact us:
+                For questions or concerns, reach us at:
               </p>
-              <div className="rounded-lg bg-gray-50 p-6">
-                <p className="mb-2 text-gray-600">
-                  <strong>Email:</strong> privacy@uniride.com
-                </p>
-                <p className="mb-2 text-gray-600">
-                  <strong>Address:</strong> UniRide Privacy Team, [University
-                  Address]
-                </p>
-                <p className="mb-2 text-gray-600">
-                  <strong>Phone:</strong> +1 (555) 123-4567
-                </p>
-                <p className="text-gray-600">
-                  <strong>Response Time:</strong> We aim to respond to all
-                  privacy inquiries within 30 days
-                </p>
-              </div>
-            </div>
-
-            {/* Consent */}
-            <div className="mb-12 rounded-lg border border-blue-200 bg-blue-50 p-6">
-              <h2 className="mb-4 text-2xl font-bold text-blue-900">
-                Your Consent
-              </h2>
-              <p className="text-blue-800">
-                By using our Service, you consent to the collection, use, and
-                sharing of your information as described in this Privacy Policy.
-                If you do not agree with our privacy practices, please do not
-                use our Service.
+              <p className="flex items-center text-gray-600">
+                <span className="mr-2">📧</span>
+                <a
+                  href="mailto:asteriskshq@gmail.com"
+                  className="text-blue-600 hover:underline"
+                >
+                  asteriskshq@gmail.com
+                </a>
               </p>
             </div>
           </div>
@@ -371,31 +389,101 @@ export default function PrivacyPolicyPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 py-12 text-white">
+      <footer className="bg-gray-900 py-16 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+            {/* Brand */}
             <div>
-              <h3 className="mb-4 text-2xl font-bold">UniRide</h3>
-              <p className="text-gray-400">
-                Safe, affordable ride-sharing for university students.
+              <div className="mb-4 flex items-center space-x-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-2xl">
+                  🚴
+                </div>
+                <span className="text-2xl font-bold">
+                  Uni<span className="text-green-400">Ride</span>
+                </span>
+              </div>
+              <p className="mb-6 text-gray-400">
+                Made by students, for students. Safe, affordable bike
+                ride-sharing for campus communities.
               </p>
+              {/* Social Icons */}
+              <div className="flex space-x-4">
+                <a
+                  href="#"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-xl transition-colors hover:bg-green-600"
+                >
+                  📘
+                </a>
+                <a
+                  href="#"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-xl transition-colors hover:bg-green-600"
+                >
+                  📷
+                </a>
+                <a
+                  href="#"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-xl transition-colors hover:bg-green-600"
+                >
+                  💼
+                </a>
+              </div>
             </div>
 
+            {/* Quick Links */}
             <div>
               <h4 className="mb-4 text-lg font-semibold">Quick Links</h4>
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="/projects/uniride"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    href="/projects/uniride#features"
+                    className="text-gray-400 transition-colors hover:text-green-400"
                   >
-                    Home
+                    Features
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/projects/uniride#how-it-works"
+                    className="text-gray-400 transition-colors hover:text-green-400"
+                  >
+                    How It Works
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/projects/uniride#testimonials"
+                    className="text-gray-400 transition-colors hover:text-green-400"
+                  >
+                    Testimonials
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-gray-400 transition-colors hover:text-green-400"
+                  >
+                    Join Our Community
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h4 className="mb-4 text-lg font-semibold">Legal</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/projects/uniride/privacy-policy"
+                    className="text-gray-400 transition-colors hover:text-green-400"
+                  >
+                    Privacy Policy
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/projects/uniride/terms-of-service"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    className="text-gray-400 transition-colors hover:text-green-400"
                   >
                     Terms of Service
                   </Link>
@@ -403,26 +491,43 @@ export default function PrivacyPolicyPage() {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 transition-colors hover:text-white"
+                    className="text-gray-400 transition-colors hover:text-green-400"
                   >
-                    Support
+                    Safety Guidelines
                   </a>
                 </li>
               </ul>
             </div>
 
+            {/* Contact */}
             <div>
               <h4 className="mb-4 text-lg font-semibold">Contact</h4>
-              <ul className="space-y-2">
-                <li className="text-gray-400">privacy@uniride.com</li>
-                <li className="text-gray-400">+1 (555) 123-4567</li>
+              <ul className="space-y-2 text-gray-400">
+                <li className="flex items-center space-x-2">
+                  <span>📧</span>
+                  <a
+                    href="mailto:asteriskshq@gmail.com"
+                    className="hover:text-green-400"
+                  >
+                    asteriskshq@gmail.com
+                  </a>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span>📍</span>
+                  <span>Daffodil Smart City, Dhaka</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span>📞</span>
+                  <span>+8801797003614</span>
+                </li>
               </ul>
             </div>
           </div>
 
-          <div className="mt-8 border-t border-gray-800 pt-8 text-center">
+          <div className="mt-12 border-t border-gray-800 pt-8 text-center">
             <p className="text-gray-400">
-              © 2024 UniRide. All rights reserved.
+              © 2025 UniRide. All rights reserved. Made with ❤️ by students,
+              for students.
             </p>
           </div>
         </div>
