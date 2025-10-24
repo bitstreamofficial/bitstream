@@ -26,11 +26,11 @@ const featuredProjects = [
     description:
       'Student ride-sharing platform connecting university communities for safe, affordable transportation.',
     image: '/images/project-uniride.jpg',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    technologies: ['Flutter', 'Supabase', 'Cloudinary', 'Firebase'],
     category: 'Mobile App',
     status: 'Live',
     liveUrl: '/projects/uniride',
-    githubUrl: 'https://github.com/bitstreamofficial/uniride',
+    githubUrl: '#',
     gradient: 'from-green-500 to-teal-500',
     bgColor: 'from-green-50 to-teal-50',
     stats: { riders: '3K+', trips: '10K+' },
