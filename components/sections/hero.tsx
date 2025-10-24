@@ -62,7 +62,7 @@ export function HeroSection() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="animate-fade-in-up animation-delay-200 mb-8 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl">
+          <h1 className="animate-fade-in-up animation-delay-200 mb-8 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text pb-2 text-5xl font-bold text-transparent md:text-6xl lg:text-7xl">
             Building{' '}
             <span className="relative">
               <span className="animate-gradient-x bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
@@ -70,7 +70,7 @@ export function HeroSection() {
               </span>
               <div className="animate-scale-x animation-delay-1000 absolute -bottom-2 left-0 right-0 h-1 scale-x-0 transform rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600" />
             </span>{' '}
-            solutions
+            <span className="inline-block pt-3 lg:pt-0">solutions</span>
           </h1>
 
           {/* Subtitle */}

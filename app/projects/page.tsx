@@ -126,44 +126,74 @@ export default function ProjectsPage() {
 
       <div className="container-custom section-padding relative z-10">
         {/* Hero Section */}
-        <div className="mb-16 text-center">
+        <div className="mb-12 text-center md:mb-16">
           <div className="mb-6 inline-block">
-            <h1 className="animate-fade-in-up mb-4 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+            <h1 className="animate-fade-in-up mb-4 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text pb-2 text-4xl font-bold text-transparent sm:text-5xl md:text-6xl">
               Our Projects
             </h1>
-            <div className="animate-fade-in-up animation-delay-200 mx-auto h-1 w-32 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+            <div className="animate-fade-in-up animation-delay-200 mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 sm:w-32"></div>
           </div>
-          <p className="animate-fade-in-up animation-delay-400 mx-auto max-w-4xl text-xl leading-relaxed text-gray-600 md:text-2xl">
+          <p className="animate-fade-in-up animation-delay-400 mx-auto max-w-4xl px-4 text-lg leading-relaxed text-gray-600 sm:text-xl md:text-2xl">
             Explore our portfolio of successful projects that showcase our
             expertise in building scalable solutions.
           </p>
         </div>
 
-        {/* Category Filter */}
+        {/* Category Filter - Responsive */}
         <div className="animate-fade-in-up animation-delay-600 mb-12 flex justify-center">
-          <div className="inline-flex gap-2 rounded-2xl border border-white/40 bg-white/60 p-2 backdrop-blur-lg">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`
-                  transform rounded-xl px-6 py-3 font-medium transition-all duration-300 hover:scale-105
-                  ${
-                    selectedCategory === category ||
-                    (selectedCategory === null && category === 'All')
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                      : 'text-gray-600 hover:bg-white/60 hover:text-gray-900'
-                  }
-                `}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="w-full max-w-5xl">
+            {/* Mobile: Horizontal Scrollable Menu */}
+            <div className="md:hidden">
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-1.5 backdrop-blur-lg">
+                <div className="hide-scrollbar flex gap-2 overflow-x-auto">
+                  {categories.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`
+                        flex-shrink-0 transform whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300
+                        ${
+                          selectedCategory === category ||
+                          (selectedCategory === null && category === 'All')
+                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                            : 'bg-white/40 text-gray-600 hover:bg-white/60 hover:text-gray-900'
+                        }
+                      `}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Tablet & Desktop */}
+            <div className="hidden md:flex justify-center">
+              <div className="inline-flex gap-2 rounded-2xl border border-white/40 bg-white/60 p-2 backdrop-blur-lg">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`
+                      transform rounded-xl px-6 py-3 font-medium transition-all duration-300 hover:scale-105
+                      ${
+                        selectedCategory === category ||
+                        (selectedCategory === null && category === 'All')
+                          ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                          : 'text-gray-600 hover:bg-white/60 hover:text-gray-900'
+                      }
+                    `}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* Projects Grid - Responsive */}
+        <div className="mb-20 grid gap-6 sm:grid-cols-1 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
             <div
               key={index}
@@ -178,8 +208,8 @@ export default function ProjectsPage() {
                 backdrop-blur-lg transition-all duration-500
                 ${
                   hoveredProject === index
-                    ? 'scale-105 bg-white/80 shadow-2xl shadow-black/10'
-                    : 'hover:scale-102 hover:bg-white/70 hover:shadow-xl'
+                    ? 'md:scale-105 bg-white/80 shadow-2xl shadow-black/10'
+                    : 'hover:bg-white/70 hover:shadow-xl md:hover:scale-102'
                 }
               `}
               >
@@ -192,7 +222,7 @@ export default function ProjectsPage() {
                 />
 
                 {/* Mockup Header */}
-                <div className="relative flex h-32 items-center justify-center overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                <div className="relative flex h-28 items-center justify-center overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 sm:h-32">
                   {/* Browser mockup for web projects */}
                   {project.category.includes('Web') && (
                     <div className="relative h-full w-full bg-gray-50">
@@ -253,20 +283,20 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 p-6">
+                <div className="relative z-10 p-5 sm:p-6">
                   {/* Tags */}
                   <div className="mb-4 flex items-center justify-between">
                     <span
                       className={`
                       bg-gradient-to-r ${categoryColors[project.category as keyof typeof categoryColors] || 'from-gray-500 to-gray-600'}
-                      rounded-full px-3 py-1 text-sm font-medium text-white
+                      rounded-full px-2.5 py-1 text-xs font-medium text-white sm:px-3 sm:text-sm
                     `}
                     >
                       {project.category}
                     </span>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
                       <div className="h-2 w-2 animate-pulse rounded-full bg-green-400"></div>
-                      <span className="text-sm font-medium text-green-700">
+                      <span className="text-xs font-medium text-green-700 sm:text-sm">
                         {project.status}
                       </span>
                     </div>
@@ -276,13 +306,13 @@ export default function ProjectsPage() {
                   <div className="mb-3 flex items-center">
                     <div
                       className={`
-                      h-12 w-12 bg-gradient-to-r ${project.gradient} mr-3 flex transform items-center justify-center
-                      rounded-xl transition-all duration-500
+                      h-10 w-10 bg-gradient-to-r ${project.gradient} mr-3 flex transform items-center justify-center
+                      rounded-xl transition-all duration-500 sm:h-12 sm:w-12
                       ${hoveredProject === index ? 'rotate-12 scale-110' : 'group-hover:rotate-6 group-hover:scale-105'}
                     `}
                     >
                       <svg
-                        className="h-6 w-6 text-white"
+                        className="h-5 w-5 text-white sm:h-6 sm:w-6"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -295,28 +325,28 @@ export default function ProjectsPage() {
                         />
                       </svg>
                     </div>
-                    <h3 className="flex-1 text-xl font-bold text-gray-900">
+                    <h3 className="flex-1 text-lg font-bold text-gray-900 sm:text-xl">
                       {project.name}
                     </h3>
                   </div>
 
                   {/* Description */}
-                  <p className="mb-6 leading-relaxed text-gray-600">
+                  <p className="mb-5 text-sm leading-relaxed text-gray-600 sm:mb-6 sm:text-base">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-                  <div className="mb-6">
-                    <h4 className="mb-3 text-sm font-semibold text-gray-900">
+                  <div className="mb-5 sm:mb-6">
+                    <h4 className="mb-2 text-xs font-semibold text-gray-900 sm:mb-3 sm:text-sm">
                       Technologies
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
                           className={`
-                            cursor-pointer rounded-full bg-gradient-to-r from-gray-100 to-gray-200 px-3 py-1 text-xs font-medium
-                            text-gray-700 transition-all duration-300 hover:scale-110
+                            cursor-pointer rounded-full bg-gradient-to-r from-gray-100 to-gray-200 px-2.5 py-1 text-xs font-medium
+                            text-gray-700 transition-all duration-300 hover:scale-110 sm:px-3
                             ${hoveredProject === index ? 'bg-gradient-to-r from-white to-gray-50 shadow-md' : ''}
                           `}
                         >
@@ -334,10 +364,10 @@ export default function ProjectsPage() {
                       }
                     }}
                     className={`
-                    w-full py-3 rounded-xl font-semibold transition-all duration-300 transform
-                    bg-gradient-to-r ${project.gradient} text-white
-                    hover:shadow-lg hover:scale-105 hover:shadow-black/20
-                    ${hoveredProject === index ? 'shadow-lg scale-105' : ''}
+                    w-full py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 transform
+                    bg-gradient-to-r ${project.gradient} text-white sm:py-3 sm:text-base
+                    hover:shadow-lg md:hover:scale-105 hover:shadow-black/20
+                    ${hoveredProject === index ? 'shadow-lg md:scale-105' : ''}
                   `}>
                     View Details
                     <svg
@@ -383,20 +413,20 @@ export default function ProjectsPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center">
-          <div className="mx-auto max-w-4xl rounded-3xl border border-white/30 bg-white/40 p-8 backdrop-blur-xl md:p-12">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
+        <div className="px-4 text-center">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-white/30 bg-white/40 p-6 backdrop-blur-xl sm:rounded-3xl sm:p-8 md:p-12">
+            <h2 className="mb-3 text-2xl font-bold text-gray-900 sm:mb-4 sm:text-3xl md:text-4xl">
               Ready to Start Your Project?
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-600">
+            <p className="mx-auto mb-6 max-w-2xl text-base text-gray-600 sm:mb-8 sm:text-lg md:text-xl">
               Let's discuss how we can help bring your ideas to life with our
               proven expertise and innovative solutions.
             </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <button className="transform rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-blue-500/25">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
+              <button className="transform rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-blue-500/25 sm:px-8 sm:py-4 sm:text-base md:hover:scale-105">
                 Let's Build Together
                 <svg
-                  className="ml-2 inline-block h-5 w-5"
+                  className="ml-2 inline-block h-4 w-4 sm:h-5 sm:w-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -409,7 +439,7 @@ export default function ProjectsPage() {
                   />
                 </svg>
               </button>
-              <button className="transform rounded-full border border-gray-200 bg-white/80 px-8 py-4 font-semibold text-gray-800 transition-all duration-300 hover:scale-105 hover:bg-white hover:shadow-lg">
+              <button className="transform rounded-full border border-gray-200 bg-white/80 px-6 py-3 text-sm font-semibold text-gray-800 transition-all duration-300 hover:bg-white hover:shadow-lg sm:px-8 sm:py-4 sm:text-base md:hover:scale-105">
                 Schedule Consultation
               </button>
             </div>

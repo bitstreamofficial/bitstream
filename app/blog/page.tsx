@@ -134,14 +134,14 @@ export default function BlogPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       <div className="container-custom section-padding">
         {/* Hero Section */}
-        <div className="mb-16 text-center">
-          <div className="mb-6 inline-block">
-            <h1 className="animate-fade-in-up mb-4 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+        <div className="mb-8 text-center sm:mb-12 md:mb-16">
+          <div className="mb-4 inline-block sm:mb-6">
+            <h1 className="animate-fade-in-up mb-3 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text pb-2 text-3xl font-bold text-transparent sm:mb-4 sm:text-4xl md:text-5xl lg:text-6xl">
               BitStream Blog
             </h1>
-            <div className="animate-fade-in-up animation-delay-200 mx-auto h-1 w-32 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+            <div className="animate-fade-in-up animation-delay-200 mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 sm:w-24 md:w-32"></div>
           </div>
-          <p className="animate-fade-in-up animation-delay-400 mx-auto max-w-4xl text-xl leading-relaxed text-gray-600 md:text-2xl">
+          <p className="animate-fade-in-up animation-delay-400 mx-auto max-w-4xl text-base leading-relaxed text-gray-600 sm:text-lg md:text-xl lg:text-2xl">
             Insights, tutorials, and thoughts on modern web and mobile
             development
           </p>
@@ -149,8 +149,8 @@ export default function BlogPage() {
 
         {/* Featured Post */}
         {featuredPost && (
-          <div className="animate-fade-in-up animation-delay-600 mb-16">
-            <div className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/40 bg-white/60 shadow-2xl backdrop-blur-lg">
+          <div className="animate-fade-in-up animation-delay-600 mb-8 sm:mb-12 md:mb-16">
+            <div className="group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 bg-white/60 shadow-2xl backdrop-blur-lg sm:rounded-2xl md:rounded-3xl">
               {/* Background Image Placeholder */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100"></div>
 
@@ -158,12 +158,12 @@ export default function BlogPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
               {/* Content */}
-              <div className="relative z-10 flex min-h-[500px] flex-col justify-end p-8 md:p-12">
+              <div className="relative z-10 flex min-h-[350px] flex-col justify-end p-5 sm:min-h-[400px] sm:p-6 md:min-h-[450px] md:p-8 lg:min-h-[500px] lg:p-12">
                 {/* Featured Badge */}
-                <div className="absolute left-6 top-6">
-                  <span className="flex items-center rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-4 py-2 text-sm font-semibold text-white">
+                <div className="absolute left-4 top-4 sm:left-6 sm:top-6">
+                  <span className="flex items-center rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 px-3 py-1.5 text-xs font-semibold text-white sm:px-4 sm:py-2 sm:text-sm">
                     <svg
-                      className="mr-2 h-4 w-4"
+                      className="mr-1.5 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -174,35 +174,35 @@ export default function BlogPage() {
                 </div>
 
                 {/* Category and Meta */}
-                <div className="mb-4 flex items-center gap-4">
+                <div className="mb-3 flex flex-wrap items-center gap-2 sm:mb-4 sm:gap-3 md:gap-4">
                   <span
-                    className={`bg-gradient-to-r ${categoryColors[featuredPost.category as keyof typeof categoryColors]} rounded-full px-4 py-2 text-sm font-semibold text-white`}
+                    className={`bg-gradient-to-r ${categoryColors[featuredPost.category as keyof typeof categoryColors]} rounded-full px-3 py-1.5 text-xs font-semibold text-white sm:px-4 sm:py-2 sm:text-sm`}
                   >
                     {featuredPost.category}
                   </span>
-                  <span className="text-sm text-white/80">
+                  <span className="text-xs text-white/80 sm:text-sm">
                     {featuredPost.readTime}
                   </span>
-                  <span className="text-sm text-white/80">
+                  <span className="text-xs text-white/80 sm:text-sm">
                     {featuredPost.date}
                   </span>
                 </div>
 
                 {/* Title and Excerpt */}
-                <h2 className="mb-4 text-3xl font-bold text-white transition-colors duration-300 group-hover:text-blue-200 md:text-4xl">
+                <h2 className="mb-3 text-2xl font-bold text-white transition-colors duration-300 group-hover:text-blue-200 sm:mb-4 sm:text-3xl md:text-4xl">
                   {featuredPost.title}
                 </h2>
-                <p className="mb-6 max-w-3xl text-lg text-white/90">
+                <p className="mb-4 max-w-3xl text-base text-white/90 sm:mb-6 sm:text-lg">
                   {featuredPost.excerpt}
                 </p>
 
                 {/* Author and Stats */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex items-center">
                     <div
-                      className={`h-12 w-12 bg-gradient-to-r ${featuredPost.gradient} mr-4 flex items-center justify-center rounded-full`}
+                      className={`h-10 w-10 bg-gradient-to-r ${featuredPost.gradient} mr-3 flex items-center justify-center rounded-full sm:h-12 sm:w-12 sm:mr-4`}
                     >
-                      <span className="text-lg font-semibold text-white">
+                      <span className="text-base font-semibold text-white sm:text-lg">
                         {featuredPost.author
                           .split(' ')
                           .map((n) => n[0])
@@ -210,18 +210,18 @@ export default function BlogPage() {
                       </span>
                     </div>
                     <div>
-                      <p className="font-semibold text-white">
+                      <p className="text-sm font-semibold text-white sm:text-base">
                         {featuredPost.author}
                       </p>
-                      <p className="text-sm text-white/80">
+                      <p className="text-xs text-white/80 sm:text-sm">
                         {featuredPost.authorRole}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 text-white/80">
+                  <div className="flex items-center gap-3 text-white/80 sm:gap-4">
                     <div className="flex items-center gap-1">
                       <svg
-                        className="h-4 w-4"
+                        className="h-3 w-3 sm:h-4 sm:w-4"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -239,11 +239,11 @@ export default function BlogPage() {
                           d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                         />
                       </svg>
-                      <span className="text-sm">{featuredPost.views}</span>
+                      <span className="text-xs sm:text-sm">{featuredPost.views}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <svg
-                        className="h-4 w-4"
+                        className="h-3 w-3 sm:h-4 sm:w-4"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -255,7 +255,7 @@ export default function BlogPage() {
                           d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                         />
                       </svg>
-                      <span className="text-sm">{featuredPost.likes}</span>
+                      <span className="text-xs sm:text-sm">{featuredPost.likes}</span>
                     </div>
                   </div>
                 </div>
@@ -264,59 +264,86 @@ export default function BlogPage() {
           </div>
         )}
 
-        <div className="grid gap-8 lg:grid-cols-4">
+        <div className="grid w-full gap-6 sm:gap-8 lg:grid-cols-4">
           {/* Main Content */}
-          <div className="lg:col-span-3">
-            {/* Category Filter */}
-            <div className="mb-8 flex flex-wrap gap-3">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`
-                    transform rounded-full px-6 py-3 font-semibold transition-all duration-300 hover:scale-105
-                    ${
-                      selectedCategory === category
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                        : 'border border-white/40 bg-white/60 text-gray-700 backdrop-blur-lg hover:bg-white/80'
-                    }
-                  `}
-                >
-                  {category}
-                </button>
-              ))}
+          <div className="min-w-0 lg:col-span-3">
+            {/* Category Filter - Responsive */}
+            <div className="mb-6 sm:mb-8">
+              {/* Mobile: Horizontal Scrollable */}
+              <div className="md:hidden">
+                <div className="rounded-xl border border-white/40 bg-white/60 p-1.5 backdrop-blur-lg sm:rounded-2xl">
+                  <div className="hide-scrollbar flex gap-1.5 overflow-x-auto sm:gap-2">
+                    {categories.map((category) => (
+                      <button
+                        key={category}
+                        onClick={() => setSelectedCategory(category)}
+                        className={`
+                          flex-shrink-0 whitespace-nowrap rounded-lg px-3 py-2 text-xs font-semibold transition-all duration-300 sm:rounded-xl sm:px-4 sm:py-2.5 sm:text-sm
+                          ${
+                            selectedCategory === category
+                              ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                              : 'bg-white/40 text-gray-700 active:bg-white/60'
+                          }
+                        `}
+                      >
+                        {category}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Tablet & Desktop: Flex Wrap */}
+              <div className="hidden flex-wrap gap-3 md:flex">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`
+                      transform rounded-full px-6 py-3 font-semibold transition-all duration-300 hover:scale-105
+                      ${
+                        selectedCategory === category
+                          ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                          : 'border border-white/40 bg-white/60 text-gray-700 backdrop-blur-lg hover:bg-white/80'
+                      }
+                    `}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Blog Posts Grid */}
-            <div className="mb-12 grid gap-8 md:grid-cols-2">
+            <div className="mb-8 grid w-full gap-6 sm:mb-10 md:grid-cols-2 md:gap-8 lg:mb-12">
               {regularPosts.map((post, index) => (
                 <article
                   key={index}
-                  className="group cursor-pointer"
+                  className="group w-full cursor-pointer"
                   onMouseEnter={() => setHoveredPost(index)}
                   onMouseLeave={() => setHoveredPost(null)}
                 >
                   <div
                     className={`
-                    flex h-full flex-col overflow-hidden rounded-2xl border
+                    flex h-full w-full flex-col overflow-hidden rounded-xl border sm:rounded-2xl
                     border-white/40 bg-white/60 backdrop-blur-lg transition-all duration-500
-                    ${hoveredPost === index ? 'scale-105 bg-white/80 shadow-2xl shadow-black/10' : 'hover:bg-white/70 hover:shadow-xl'}
+                    ${hoveredPost === index ? 'md:scale-105 bg-white/80 shadow-2xl shadow-black/10' : 'md:hover:bg-white/70 md:hover:shadow-xl'}
                   `}
                   >
                     {/* Image Placeholder */}
                     <div
-                      className={`h-48 bg-gradient-to-br ${post.gradient} relative overflow-hidden`}
+                      className={`h-40 sm:h-48 bg-gradient-to-br ${post.gradient} relative overflow-hidden`}
                     >
                       {/* Overlay pattern */}
                       <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 right-4">
+                      <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
                         <div className="flex items-center justify-between">
                           <span
-                            className={`bg-gradient-to-r ${categoryColors[post.category as keyof typeof categoryColors]} rounded-full px-3 py-1 text-sm font-semibold text-white`}
+                            className={`bg-gradient-to-r ${categoryColors[post.category as keyof typeof categoryColors]} rounded-full px-2.5 py-1 text-xs font-semibold text-white sm:px-3 sm:text-sm`}
                           >
                             {post.category}
                           </span>
-                          <div className="flex items-center gap-3 text-sm text-white/80">
+                          <div className="flex items-center gap-2 text-xs text-white/80 sm:gap-3 sm:text-sm">
                             <div className="flex items-center gap-1">
                               <svg
                                 className="h-3 w-3"
@@ -361,26 +388,26 @@ export default function BlogPage() {
                     </div>
 
                     {/* Content */}
-                    <div className="flex flex-1 flex-col p-6">
+                    <div className="flex flex-1 flex-col p-5 sm:p-6">
                       {/* Meta Info */}
-                      <div className="mb-3 flex items-center gap-3 text-sm text-gray-500">
+                      <div className="mb-3 flex items-center gap-2 text-xs text-gray-500 sm:gap-3 sm:text-sm">
                         <span>{post.readTime}</span>
                         <span>•</span>
                         <span>{post.date}</span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="mb-3 line-clamp-2 text-xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-blue-600">
+                      <h3 className="mb-3 line-clamp-2 text-lg font-bold text-gray-900 transition-colors duration-300 group-hover:text-blue-600 sm:text-xl">
                         {post.title}
                       </h3>
 
                       {/* Excerpt */}
-                      <p className="mb-4 line-clamp-3 flex-1 text-gray-600">
+                      <p className="mb-4 line-clamp-3 flex-1 text-sm text-gray-600 sm:text-base">
                         {post.excerpt}
                       </p>
 
                       {/* Tags */}
-                      <div className="mb-4 flex flex-wrap gap-2">
+                      <div className="mb-4 flex flex-wrap gap-1.5 sm:gap-2">
                         {post.tags.slice(0, 3).map((tag, tagIndex) => (
                           <span
                             key={tagIndex}
@@ -395,9 +422,9 @@ export default function BlogPage() {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <div
-                            className={`h-8 w-8 bg-gradient-to-r ${post.gradient} mr-3 flex items-center justify-center rounded-full`}
+                            className={`h-8 w-8 sm:h-9 sm:w-9 bg-gradient-to-r ${post.gradient} mr-2.5 sm:mr-3 flex items-center justify-center rounded-full`}
                           >
-                            <span className="text-sm font-semibold text-white">
+                            <span className="text-xs font-semibold text-white sm:text-sm">
                               {post.author
                                 .split(' ')
                                 .map((n) => n[0])
@@ -405,15 +432,15 @@ export default function BlogPage() {
                             </span>
                           </div>
                           <div>
-                            <p className="text-sm font-semibold text-gray-900">
+                            <p className="text-xs font-semibold text-gray-900 sm:text-sm">
                               {post.author}
                             </p>
-                            <p className="text-xs text-gray-500">
+                            <p className="text-[10px] text-gray-500 sm:text-xs">
                               {post.authorRole}
                             </p>
                           </div>
                         </div>
-                        <button className="text-sm font-semibold text-blue-600 transition-colors hover:text-blue-700">
+                        <button className="text-xs font-semibold text-blue-600 transition-colors hover:text-blue-700 sm:text-sm">
                           Read More →
                         </button>
                       </div>
@@ -425,41 +452,41 @@ export default function BlogPage() {
 
             {/* Load More */}
             <div className="text-center">
-              <button className="transform rounded-full border border-white/40 bg-white/60 px-8 py-4 font-semibold text-gray-700 backdrop-blur-lg transition-all duration-300 hover:scale-105 hover:bg-white/80">
+              <button className="transform rounded-full border border-white/40 bg-white/60 px-6 py-3 text-sm font-semibold text-gray-700 backdrop-blur-lg transition-all duration-300 hover:scale-105 hover:bg-white/80 sm:px-8 sm:py-4 sm:text-base md:hover:scale-105">
                 Load More Articles
               </button>
             </div>
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-8">
+          <div className="min-w-0 space-y-6 sm:space-y-8">
             {/* Newsletter */}
-            <div className="rounded-2xl border border-white/40 bg-white/60 p-6 backdrop-blur-lg">
-              <h3 className="mb-4 text-xl font-bold text-gray-900">
+            <div className="rounded-xl border border-white/40 bg-white/60 p-5 backdrop-blur-lg sm:rounded-2xl sm:p-6">
+              <h3 className="mb-3 text-lg font-bold text-gray-900 sm:mb-4 sm:text-xl">
                 📧 Stay Updated
               </h3>
-              <p className="mb-4 text-sm text-gray-600">
+              <p className="mb-4 text-xs text-gray-600 sm:text-sm">
                 Get the latest articles and insights delivered straight to your
                 inbox.
               </p>
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full rounded-xl border border-white/40 bg-white/80 px-4 py-3 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full rounded-lg border border-white/40 bg-white/80 px-3 py-2.5 text-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 sm:rounded-xl sm:px-4 sm:py-3"
                 />
-                <button className="w-full transform rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 py-3 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <button className="w-full transform rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg sm:rounded-xl sm:py-3 md:hover:scale-105">
                   Subscribe
                 </button>
               </div>
             </div>
 
             {/* Popular Tags */}
-            <div className="rounded-2xl border border-white/40 bg-white/60 p-6 backdrop-blur-lg">
-              <h3 className="mb-4 text-xl font-bold text-gray-900">
+            <div className="rounded-xl border border-white/40 bg-white/60 p-5 backdrop-blur-lg sm:rounded-2xl sm:p-6">
+              <h3 className="mb-3 text-lg font-bold text-gray-900 sm:mb-4 sm:text-xl">
                 🏷️ Popular Tags
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {[
                   'React',
                   'TypeScript',
@@ -472,7 +499,7 @@ export default function BlogPage() {
                 ].map((tag) => (
                   <span
                     key={tag}
-                    className="cursor-pointer rounded-full bg-gradient-to-r from-gray-100 to-gray-200 px-3 py-1 text-sm text-gray-700 transition-all duration-300 hover:from-blue-100 hover:to-purple-100 hover:text-blue-700"
+                    className="cursor-pointer rounded-full bg-gradient-to-r from-gray-100 to-gray-200 px-2.5 py-1 text-xs text-gray-700 transition-all duration-300 hover:from-blue-100 hover:to-purple-100 hover:text-blue-700 sm:px-3 sm:text-sm"
                   >
                     #{tag}
                   </span>
@@ -481,21 +508,21 @@ export default function BlogPage() {
             </div>
 
             {/* Recent Posts */}
-            <div className="rounded-2xl border border-white/40 bg-white/60 p-6 backdrop-blur-lg">
-              <h3 className="mb-4 text-xl font-bold text-gray-900">
+            <div className="rounded-xl border border-white/40 bg-white/60 p-5 backdrop-blur-lg sm:rounded-2xl sm:p-6">
+              <h3 className="mb-3 text-lg font-bold text-gray-900 sm:mb-4 sm:text-xl">
                 📝 Recent Posts
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {blogPosts.slice(0, 3).map((post, index) => (
-                  <div key={index} className="group flex cursor-pointer gap-3">
+                  <div key={index} className="group flex cursor-pointer gap-2.5 sm:gap-3">
                     <div
-                      className={`h-12 w-16 bg-gradient-to-br ${post.gradient} flex-shrink-0 rounded-lg`}
+                      className={`h-10 w-14 sm:h-12 sm:w-16 bg-gradient-to-br ${post.gradient} flex-shrink-0 rounded-md sm:rounded-lg`}
                     ></div>
                     <div className="min-w-0 flex-1">
-                      <p className="line-clamp-2 text-sm font-semibold text-gray-900 transition-colors group-hover:text-blue-600">
+                      <p className="line-clamp-2 text-xs font-semibold text-gray-900 transition-colors group-hover:text-blue-600 sm:text-sm">
                         {post.title}
                       </p>
-                      <p className="mt-1 text-xs text-gray-500">{post.date}</p>
+                      <p className="mt-0.5 text-[10px] text-gray-500 sm:mt-1 sm:text-xs">{post.date}</p>
                     </div>
                   </div>
                 ))}

@@ -232,26 +232,28 @@ export function ProjectsSection() {
           className={`delay-600 mb-12 flex justify-center transition-all duration-1000 ${isInView ? 'animate-fade-in-up' : 'translate-y-8 opacity-0'}`}
         >
           <div className="w-full max-w-5xl">
-            {/* Mobile: Vertical layout */}
+            {/* Mobile: Horizontal Scrollable Menu */}
             <div className="md:hidden">
-              <div className="flex flex-col gap-2 rounded-2xl border border-white/40 bg-white/60 p-3 backdrop-blur-lg">
-                {categories.map((category, index) => (
-                  <button
-                    key={category}
-                    onClick={() => setActiveFilter(category)}
-                    className={`
-                      transform whitespace-nowrap rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-300 hover:scale-105
-                      ${
-                        activeFilter === category
-                          ? 'scale-105 bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                          : 'text-gray-600 hover:bg-white/60 hover:text-gray-900'
-                      }
-                    `}
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    {category}
-                  </button>
-                ))}
+              <div className="rounded-2xl border border-white/40 bg-white/60 p-1.5 backdrop-blur-lg">
+                <div className="hide-scrollbar flex gap-2 overflow-x-auto">
+                  {categories.map((category, index) => (
+                    <button
+                      key={category}
+                      onClick={() => setActiveFilter(category)}
+                      className={`
+                        flex-shrink-0 transform whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300
+                        ${
+                          activeFilter === category
+                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                            : 'bg-white/40 text-gray-600 hover:bg-white/60 hover:text-gray-900'
+                        }
+                      `}
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 

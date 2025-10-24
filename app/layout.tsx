@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+// @ts-ignore: allow side-effect CSS import without type declarations
 import './globals.css'
 import { Header } from '@/components/layout/header'
 import { ConditionalFooter } from '@/components/layout/conditional-footer'
