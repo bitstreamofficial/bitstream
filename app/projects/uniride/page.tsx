@@ -174,15 +174,15 @@ export default function UniRidePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Sticky Navigation */}
-      <nav className="fixed top-0 z-50 w-full border-b border-green-100 bg-white/95 shadow-sm backdrop-blur-sm">
+      <nav className="fixed top-0 z-50 w-full border-b border-[#5CE65C]/20 bg-white/95 shadow-sm backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center space-x-4">
               <Link
                 href="/"
-                className="flex items-center space-x-1 text-sm text-gray-600 transition-colors hover:text-green-600"
+                className="flex items-center space-x-1 text-sm text-[#333333] transition-colors hover:text-[#1DA1F2]"
               >
                 <svg
                   className="h-4 w-4"
@@ -204,11 +204,16 @@ export default function UniRidePage() {
                 href="/projects/uniride"
                 className="flex items-center space-x-2"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-2xl">
-                  🚴
+                <div className="relative h-10 w-10 overflow-hidden rounded-full">
+                  <Image
+                    src="/images/ur_logo.jpg"
+                    alt="UniRide Logo"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <span className="text-2xl font-bold text-gray-900">
-                  Uni<span className="text-green-600">Ride</span>
+                <span className="text-2xl font-bold text-[#333333]">
+                  Uni<span className="text-[#5CE65C]">Ride</span>
                 </span>
               </Link>
             </div>
@@ -216,35 +221,35 @@ export default function UniRidePage() {
             <div className="hidden items-center space-x-8 md:flex">
               <a
                 href="#features"
-                className="text-gray-600 transition-colors hover:text-green-600"
+                className="text-[#333333] transition-colors hover:text-[#1DA1F2]"
               >
                 Features
               </a>
               <a
                 href="#how-it-works"
-                className="text-gray-600 transition-colors hover:text-green-600"
+                className="text-[#333333] transition-colors hover:text-[#1DA1F2]"
               >
                 How It Works
               </a>
               <a
                 href="#testimonials"
-                className="text-gray-600 transition-colors hover:text-green-600"
+                className="text-[#333333] transition-colors hover:text-[#1DA1F2]"
               >
                 Reviews
               </a>
               <Link
                 href="/projects/uniride/privacy-policy"
-                className="text-gray-600 transition-colors hover:text-green-600"
+                className="text-[#333333] transition-colors hover:text-[#1DA1F2]"
               >
                 Privacy
               </Link>
               <Link
                 href="/projects/uniride/terms-of-service"
-                className="text-gray-600 transition-colors hover:text-green-600"
+                className="text-[#333333] transition-colors hover:text-[#1DA1F2]"
               >
                 Terms
               </Link>
-              <button className="rounded-full bg-gradient-to-r from-green-500 to-green-600 px-6 py-2 font-semibold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <button className="rounded-full bg-[#5CE65C] px-6 py-2 font-semibold text-[#333333] shadow-md transition-all duration-300 hover:scale-105 hover:bg-[#1DA1F2] hover:text-white hover:shadow-lg">
                 Download
               </button>
             </div>
@@ -252,7 +257,7 @@ export default function UniRidePage() {
             {/* Mobile menu button */}
             <button className="md:hidden">
               <svg
-                className="h-6 w-6 text-gray-600"
+                className="h-6 w-6 text-[#333333]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -270,15 +275,15 @@ export default function UniRidePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative mt-16 overflow-hidden bg-gradient-to-br from-green-50 via-white to-yellow-50 pb-32 pt-20">
+      <section className="relative mt-16 overflow-hidden bg-gradient-to-br from-[#5CE65C]/10 via-white to-[#1DA1F2]/10 pb-32 pt-20">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div
-            className="absolute -left-4 top-20 h-72 w-72 rounded-full bg-green-200 opacity-20 blur-3xl"
+            className="absolute -left-4 top-20 h-72 w-72 rounded-full bg-[#5CE65C] opacity-20 blur-3xl"
             style={{ transform: `translateY(${scrollY * 0.2}px)` }}
           ></div>
           <div
-            className="absolute -right-4 top-40 h-96 w-96 rounded-full bg-yellow-200 opacity-20 blur-3xl"
+            className="absolute -right-4 top-40 h-96 w-96 rounded-full bg-[#1DA1F2] opacity-20 blur-3xl"
             style={{ transform: `translateY(${scrollY * 0.15}px)` }}
           ></div>
         </div>
@@ -287,28 +292,28 @@ export default function UniRidePage() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             {/* Left Content */}
             <div className="text-center lg:text-left">
-              <div className="mb-6 inline-block animate-bounce rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-700">
+              <div className="mb-6 inline-block animate-bounce rounded-full bg-[#5CE65C]/20 px-4 py-2 text-sm font-semibold text-[#333333]">
                 🎓 By the Students, for Students
               </div>
-              <h1 className="mb-6 text-5xl font-bold leading-tight text-gray-900 md:text-6xl lg:text-7xl">
+              <h1 className="mb-6 text-5xl font-bold leading-tight text-[#333333] md:text-6xl lg:text-7xl">
                 Fast, Safe, and
-                <span className="block bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-[#5CE65C] to-[#1DA1F2] bg-clip-text text-transparent">
                   Reliable Campus Rides
                 </span>
               </h1>
-              <p className="mb-8 text-xl text-gray-600 md:text-2xl">
+              <p className="mb-8 text-xl text-[#333333]/80 md:text-2xl">
                 Student-friendly fares. Verified riders. Real-time tracking.
                 Join hundreds of students riding smarter every day.
               </p>
 
               <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
-                <button className="group relative overflow-hidden rounded-full bg-gradient-to-r from-green-500 to-green-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                <button className="group relative overflow-hidden rounded-full bg-[#5CE65C] px-8 py-4 text-lg font-semibold text-[#333333] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
                   <span className="relative z-10 flex items-center justify-center">
                     📱 Get the App
                   </span>
-                  <div className="absolute inset-0 -z-0 bg-gradient-to-r from-green-600 to-green-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                  <div className="absolute inset-0 -z-0 bg-[#1DA1F2] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                 </button>
-                <button className="rounded-full border-2 border-green-600 bg-white px-8 py-4 text-lg font-semibold text-green-600 transition-all duration-300 hover:bg-green-50">
+                <button className="rounded-full border-2 border-[#1DA1F2] bg-white px-8 py-4 text-lg font-semibold text-[#1DA1F2] transition-all duration-300 hover:bg-[#1DA1F2]/10">
                   🚴 Join as a Rider
                 </button>
               </div>
@@ -316,16 +321,16 @@ export default function UniRidePage() {
               {/* Trust indicators */}
               <div className="mt-12 flex flex-wrap items-center justify-center gap-8 lg:justify-start">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">500+</div>
-                  <div className="text-sm text-gray-600">Active Students</div>
+                  <div className="text-3xl font-bold text-[#333333]">500+</div>
+                  <div className="text-sm text-[#333333]/70">Active Students</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">1000+</div>
-                  <div className="text-sm text-gray-600">Rides Completed</div>
+                  <div className="text-3xl font-bold text-[#333333]">1000+</div>
+                  <div className="text-sm text-[#333333]/70">Rides Completed</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">4.9⭐</div>
-                  <div className="text-sm text-gray-600">User Rating</div>
+                  <div className="text-3xl font-bold text-[#333333]">4.9⭐</div>
+                  <div className="text-sm text-[#333333]/70">User Rating</div>
                 </div>
               </div>
             </div>
@@ -334,7 +339,7 @@ export default function UniRidePage() {
             <div className="relative">
               <div className="relative z-10">
                 {/* Main bike illustration using image */}
-                <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-3xl bg-gradient-to-br from-green-100 to-yellow-100 shadow-2xl sm:h-80 sm:w-80 lg:h-96 lg:w-96">
+                <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-3xl bg-gradient-to-br from-[#5CE65C]/20 to-[#1DA1F2]/20 shadow-2xl sm:h-80 sm:w-80 lg:h-96 lg:w-96">
                   <Image
                     src="/images/bike_rider_1.jpg"
                     alt="UniRide Bike Rider"
@@ -348,14 +353,14 @@ export default function UniRidePage() {
                   {/* Decorative route path */}
                   <div className="absolute -left-4 top-8 flex flex-col space-y-4 sm:-left-8 sm:top-12">
                     <div className="flex items-center space-x-2">
-                      <div className="h-3 w-3 rounded-full bg-green-500 shadow-lg sm:h-4 sm:w-4"></div>
-                      <div className="h-1 w-8 bg-green-300 sm:w-12"></div>
+                      <div className="h-3 w-3 rounded-full bg-[#5CE65C] shadow-lg sm:h-4 sm:w-4"></div>
+                      <div className="h-1 w-8 bg-[#5CE65C]/50 sm:w-12"></div>
                     </div>
                   </div>
                   <div className="absolute -right-4 bottom-8 flex flex-col space-y-4 sm:-right-8 sm:bottom-12">
                     <div className="flex items-center space-x-2">
-                      <div className="h-1 w-8 bg-yellow-300 sm:w-12"></div>
-                      <div className="h-3 w-3 animate-pulse rounded-full bg-yellow-500 shadow-lg sm:h-4 sm:w-4"></div>
+                      <div className="h-1 w-8 bg-[#1DA1F2]/50 sm:w-12"></div>
+                      <div className="h-3 w-3 animate-pulse rounded-full bg-[#1DA1F2] shadow-lg sm:h-4 sm:w-4"></div>
                     </div>
                   </div>
                 </div>
@@ -368,8 +373,8 @@ export default function UniRidePage() {
                   <div className="flex items-center space-x-2">
                     <div className="text-xl sm:text-2xl">⚡</div>
                     <div>
-                      <div className="text-xs text-gray-500">Pickup in</div>
-                      <div className="text-sm font-bold text-green-600 sm:text-base">
+                      <div className="text-xs text-[#333333]/70">Pickup in</div>
+                      <div className="text-sm font-bold text-[#5CE65C] sm:text-base">
                         2 mins
                       </div>
                     </div>
@@ -383,8 +388,8 @@ export default function UniRidePage() {
                   <div className="flex items-center space-x-2">
                     <div className="text-xl sm:text-2xl">💰</div>
                     <div>
-                      <div className="text-xs text-gray-500">Save up to</div>
-                      <div className="text-sm font-bold text-green-600 sm:text-base">
+                      <div className="text-xs text-[#333333]/70">Save up to</div>
+                      <div className="text-sm font-bold text-[#5CE65C] sm:text-base">
                         70%
                       </div>
                     </div>
@@ -414,10 +419,10 @@ export default function UniRidePage() {
       <section id="how-it-works" className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
-              How It <span className="text-green-600">Works</span>
+            <h2 className="mb-4 text-4xl font-bold text-[#333333] md:text-5xl">
+              How It <span className="text-[#5CE65C]">Works</span>
             </h2>
-            <p className="mx-auto max-w-2xl text-xl text-gray-600">
+            <p className="mx-auto max-w-2xl text-xl text-[#333333]/80">
               Three simple steps to start your ride-sharing journey
             </p>
           </div>
@@ -430,23 +435,23 @@ export default function UniRidePage() {
               >
                 {/* Connector line */}
                 {index < howItWorks.length - 1 && (
-                  <div className="absolute left-1/2 top-12 hidden h-1 w-full bg-gradient-to-r from-green-300 to-green-200 md:block"></div>
+                  <div className="absolute left-1/2 top-12 hidden h-1 w-full bg-gradient-to-r from-[#5CE65C] to-[#1DA1F2] md:block"></div>
                 )}
 
-                <div className="relative z-10 mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-green-400 to-green-600 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                <div className="relative z-10 mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-[#5CE65C] to-[#1DA1F2] text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
                   {step.icon}
                 </div>
-                <h3 className="mb-4 text-2xl font-bold text-gray-900">
+                <h3 className="mb-4 text-2xl font-bold text-[#333333]">
                   {step.title}
                 </h3>
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-[#333333]/80">{step.description}</p>
               </div>
             ))}
           </div>
 
           {/* CTA */}
           <div className="mt-16 text-center">
-            <button className="rounded-full bg-gradient-to-r from-green-500 to-green-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <button className="rounded-full bg-gradient-to-r from-[#5CE65C] to-[#1DA1F2] px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
               Start Your First Ride →
             </button>
           </div>
@@ -456,14 +461,14 @@ export default function UniRidePage() {
       {/* Why Choose UniRide Section */}
       <section
         id="features"
-        className="bg-gradient-to-br from-gray-50 to-green-50 py-20"
+        className="bg-gradient-to-br from-[#5CE65C]/5 to-[#1DA1F2]/5 py-20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
-              Why Choose <span className="text-green-600">UniRide?</span>
+            <h2 className="mb-4 text-4xl font-bold text-[#333333] md:text-5xl">
+              Why Choose <span className="text-[#5CE65C]">UniRide?</span>
             </h2>
-            <p className="mx-auto max-w-2xl text-xl text-gray-600">
+            <p className="mx-auto max-w-2xl text-xl text-[#333333]/80">
               Built exclusively for students with features that matter
             </p>
           </div>
@@ -474,13 +479,13 @@ export default function UniRidePage() {
                 key={index}
                 className="group rounded-3xl bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
               >
-                <div className="mb-6 inline-flex rounded-2xl bg-green-100 p-4 text-green-600 transition-colors duration-300 group-hover:bg-green-600 group-hover:text-white">
+                <div className="mb-6 inline-flex rounded-2xl bg-[#5CE65C]/10 p-4 text-[#5CE65C] transition-colors duration-300 group-hover:bg-[#1DA1F2] group-hover:text-white">
                   {feature.icon}
                 </div>
-                <h3 className="mb-3 text-xl font-bold text-gray-900">
+                <h3 className="mb-3 text-xl font-bold text-[#333333]">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-[#333333]/80">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -492,11 +497,11 @@ export default function UniRidePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <div className="mb-4 text-5xl">❤️</div>
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
+            <h2 className="mb-4 text-4xl font-bold text-[#333333] md:text-5xl">
               Trusted by Hundreds of{' '}
-              <span className="text-green-600">University Students</span>
+              <span className="text-[#5CE65C]">University Students</span>
             </h2>
-            <p className="mx-auto max-w-2xl text-xl text-gray-600">
+            <p className="mx-auto max-w-2xl text-xl text-[#333333]/80">
               See what our student community has to say
             </p>
           </div>
@@ -505,48 +510,63 @@ export default function UniRidePage() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="rounded-3xl bg-gradient-to-br from-green-50 to-yellow-50 p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="rounded-3xl bg-gradient-to-br from-[#5CE65C]/10 to-[#1DA1F2]/10 p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
                 <div className="mb-6 flex items-center space-x-4">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-4xl shadow-md">
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900">
+                    <div className="font-bold text-[#333333]">
                       {testimonial.name}
                     </div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-[#333333]/70">
                       {testimonial.university}
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-700">"{testimonial.text}"</p>
-                <div className="mt-4 text-yellow-500">⭐⭐⭐⭐⭐</div>
+                <p className="text-[#333333]">"{testimonial.text}"</p>
+                <div className="mt-4 text-[#5CE65C]">⭐⭐⭐⭐⭐</div>
               </div>
             ))}
           </div>
 
           {/* Community CTA */}
-          <div className="mt-16 rounded-3xl bg-gradient-to-r from-green-600 to-green-500 p-12 text-center text-white shadow-2xl">
+          <div className="mt-16 rounded-3xl bg-gradient-to-r from-[#5CE65C] to-[#1DA1F2] p-12 text-center text-white shadow-2xl">
             <h3 className="mb-4 text-3xl font-bold">
               Join Our Growing Community
             </h3>
             <p className="mb-8 text-lg opacity-90">
               Connect with students on Facebook and stay updated
             </p>
-            <button className="rounded-full bg-white px-8 py-4 font-semibold text-green-600 shadow-lg transition-all duration-300 hover:scale-105">
-              📘 Join Facebook Group
-            </button>
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <a
+                href="https://www.facebook.com/groups/uniriderscommunity"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-white px-8 py-4 font-semibold text-[#1DA1F2] shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                📘 Join Facebook Group
+              </a>
+              <a
+                href="https://www.facebook.com/uniride/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border-2 border-white bg-transparent px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-white hover:text-[#1DA1F2]"
+              >
+                👍 Follow Our Page
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Download / CTA Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-green-500 via-green-600 to-yellow-500 py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#5CE65C] via-[#1DA1F2] to-[#5CE65C] py-20">
         {/* Animated background */}
         <div className="absolute inset-0">
           <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-white opacity-10 blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-yellow-300 opacity-20 blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-[#333333] opacity-20 blur-3xl"></div>
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -643,42 +663,78 @@ export default function UniRidePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 py-16 text-white">
+      <footer className="bg-[#333333] py-16 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
             {/* Brand */}
             <div>
               <div className="mb-4 flex items-center space-x-2">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-2xl">
-                  🚴
+                <div className="relative h-10 w-10 overflow-hidden rounded-full">
+                  <Image
+                    src="/images/ur_logo.jpg"
+                    alt="UniRide Logo"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <span className="text-2xl font-bold">
-                  Uni<span className="text-green-400">Ride</span>
+                  Uni<span className="text-[#5CE65C]">Ride</span>
                 </span>
               </div>
-              <p className="mb-6 text-gray-400">
+              <p className="mb-6 text-white/70">
                 Made by students, for students. Safe, affordable bike
                 ride-sharing for campus communities.
               </p>
               {/* Social Icons */}
               <div className="flex space-x-4">
                 <a
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-xl transition-colors hover:bg-green-600"
+                  href="https://www.facebook.com/uniride/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-[#1DA1F2] hover:scale-110"
+                  title="Facebook Page"
                 >
-                  📘
+                  <svg
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
                 </a>
                 <a
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-xl transition-colors hover:bg-green-600"
+                  href="https://www.facebook.com/groups/uniriderscommunity"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-[#5CE65C] hover:scale-110"
+                  title="Facebook Group"
                 >
-                  �
+                  <svg
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10zm3 8h-2v7h-2v-7H9V8h2V6.5c0-1.93 1.17-3 2.93-3 .84 0 1.57.07 1.57.07V6h-1.5c-.98 0-1.07.6-1.07 1.2V8h2l-.5 2z" />
+                  </svg>
                 </a>
                 <a
-                  href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-xl transition-colors hover:bg-green-600"
+                  href="mailto:asteriskshq@gmail.com"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-[#1DA1F2] hover:scale-110"
+                  title="Email Us"
                 >
-                  💼
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
                 </a>
               </div>
             </div>
@@ -690,7 +746,7 @@ export default function UniRidePage() {
                 <li>
                   <a
                     href="#features"
-                    className="text-gray-400 transition-colors hover:text-green-400"
+                    className="text-white/70 transition-colors hover:text-[#5CE65C]"
                   >
                     Features
                   </a>
@@ -698,7 +754,7 @@ export default function UniRidePage() {
                 <li>
                   <a
                     href="#how-it-works"
-                    className="text-gray-400 transition-colors hover:text-green-400"
+                    className="text-white/70 transition-colors hover:text-[#5CE65C]"
                   >
                     How It Works
                   </a>
@@ -706,15 +762,17 @@ export default function UniRidePage() {
                 <li>
                   <a
                     href="#testimonials"
-                    className="text-gray-400 transition-colors hover:text-green-400"
+                    className="text-white/70 transition-colors hover:text-[#5CE65C]"
                   >
                     Testimonials
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
-                    className="text-gray-400 transition-colors hover:text-green-400"
+                    href="https://www.facebook.com/groups/uniriderscommunity"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/70 transition-colors hover:text-[#5CE65C]"
                   >
                     Join Our Community
                   </a>
@@ -729,7 +787,7 @@ export default function UniRidePage() {
                 <li>
                   <Link
                     href="/projects/uniride/privacy-policy"
-                    className="text-gray-400 transition-colors hover:text-green-400"
+                    className="text-white/70 transition-colors hover:text-[#1DA1F2]"
                   >
                     Privacy Policy
                   </Link>
@@ -737,7 +795,7 @@ export default function UniRidePage() {
                 <li>
                   <Link
                     href="/projects/uniride/terms-of-service"
-                    className="text-gray-400 transition-colors hover:text-green-400"
+                    className="text-white/70 transition-colors hover:text-[#1DA1F2]"
                   >
                     Terms of Service
                   </Link>
@@ -745,7 +803,7 @@ export default function UniRidePage() {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-400 transition-colors hover:text-green-400"
+                    className="text-white/70 transition-colors hover:text-[#1DA1F2]"
                   >
                     Safety Guidelines
                   </a>
@@ -756,12 +814,12 @@ export default function UniRidePage() {
             {/* Contact */}
             <div>
               <h4 className="mb-4 text-lg font-semibold">Contact</h4>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-white/70">
                 <li className="flex items-center space-x-2">
                   <span>📧</span>
                   <a
                     href="mailto:asteriskshq@gmail.com"
-                    className="hover:text-green-400"
+                    className="hover:text-[#5CE65C]"
                   >
                     asteriskshq@gmail.com
                   </a>
@@ -778,8 +836,8 @@ export default function UniRidePage() {
             </div>
           </div>
 
-          <div className="mt-12 border-t border-gray-800 pt-8 text-center">
-            <p className="text-gray-400">
+          <div className="mt-12 border-t border-white/10 pt-8 text-center">
+            <p className="text-white/70">
               © 2025 UniRide. All rights reserved. Made with ❤️ by students,
               for students.
             </p>
