@@ -17,6 +17,18 @@ const projects = [
     mockupColor: 'bg-blue-100',
   },
   {
+    name: 'UniRide',
+    description: 'Student ride-sharing platform connecting university communities for safe, affordable transportation.',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    category: 'Mobile App',
+    status: 'Live',
+    icon: 'M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l1.414 1.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0',
+    gradient: 'from-green-500 to-teal-500',
+    bgGradient: 'from-green-50 to-teal-50',
+    mockupColor: 'bg-green-100',
+    link: '/projects/uniride'
+  },
+  {
     name: 'BEMS',
     description:
       'Employee Management System for handling staff records, attendance, and performance tracking.',
@@ -64,19 +76,8 @@ const projects = [
     gradient: 'from-indigo-500 to-purple-500',
     bgGradient: 'from-indigo-50 to-purple-50',
     mockupColor: 'bg-indigo-100'
-  },
-  {
-    name: 'UniRide',
-    description: 'Student ride-sharing platform connecting university communities for safe, affordable transportation.',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    category: 'Mobile App',
-    status: 'Live',
-    icon: 'M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l1.414 1.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0',
-    gradient: 'from-green-500 to-teal-500',
-    bgGradient: 'from-green-50 to-teal-50',
-    mockupColor: 'bg-green-100',
-    link: '/projects/uniride'
   }
+  
 ]
 
 const categoryColors = {
