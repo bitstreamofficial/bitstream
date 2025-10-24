@@ -1,8 +1,8 @@
-import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google';
 // @ts-ignore: allow side-effect CSS import without type declarations
-import './globals.css'
-import { Header } from '@/components/layout/header'
-import { ConditionalFooter } from '@/components/layout/conditional-footer'
+import './globals.css';
+import { Header } from '@/components/layout/header';
+import { ConditionalFooter } from '@/components/layout/conditional-footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -69,9 +69,7 @@ export default function RootLayout({
       <body className={`${inter.className} overflow-x-hidden`}>
         <div className="flex min-h-screen flex-col overflow-x-hidden bg-white">
           <Header />
-          <main className="flex-1">
-            {children}
-          </main>
+          <main className="flex-1">{children}</main>
           <ConditionalFooter />
         </div>
       </body>

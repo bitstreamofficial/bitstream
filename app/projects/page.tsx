@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const projects = [
   {
@@ -18,7 +18,8 @@ const projects = [
   },
   {
     name: 'UniRide',
-    description: 'Student ride-sharing platform connecting university communities for safe, affordable transportation.',
+    description:
+      'Student ride-sharing platform connecting university communities for safe, affordable transportation.',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     category: 'Mobile App',
     status: 'Live',
@@ -26,7 +27,7 @@ const projects = [
     gradient: 'from-green-500 to-teal-500',
     bgGradient: 'from-green-50 to-teal-50',
     mockupColor: 'bg-green-100',
-    link: '/projects/uniride'
+    link: '/projects/uniride',
   },
   {
     name: 'BEMS',
@@ -75,10 +76,9 @@ const projects = [
     icon: 'M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z',
     gradient: 'from-indigo-500 to-purple-500',
     bgGradient: 'from-indigo-50 to-purple-50',
-    mockupColor: 'bg-indigo-100'
-  }
-  
-]
+    mockupColor: 'bg-indigo-100',
+  },
+];
 
 const categoryColors = {
   'Web Application': 'from-blue-500 to-blue-600',
@@ -88,9 +88,9 @@ const categoryColors = {
 };
 
 export default function ProjectsPage() {
-  const router = useRouter()
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const router = useRouter();
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const categories = [
     'All',
@@ -168,7 +168,7 @@ export default function ProjectsPage() {
             </div>
 
             {/* Tablet & Desktop */}
-            <div className="hidden md:flex justify-center">
+            <div className="hidden justify-center md:flex">
               <div className="inline-flex gap-2 rounded-2xl border border-white/40 bg-white/60 p-2 backdrop-blur-lg">
                 {categories.map((category) => (
                   <button
@@ -208,8 +208,8 @@ export default function ProjectsPage() {
                 backdrop-blur-lg transition-all duration-500
                 ${
                   hoveredProject === index
-                    ? 'md:scale-105 bg-white/80 shadow-2xl shadow-black/10'
-                    : 'hover:bg-white/70 hover:shadow-xl md:hover:scale-102'
+                    ? 'bg-white/80 shadow-2xl shadow-black/10 md:scale-105'
+                    : 'md:hover:scale-102 hover:bg-white/70 hover:shadow-xl'
                 }
               `}
               >
@@ -357,18 +357,19 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Action Button */}
-                  <button 
+                  <button
                     onClick={() => {
                       if (project.link) {
-                        router.push(project.link)
+                        router.push(project.link);
                       }
                     }}
                     className={`
-                    w-full py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 transform
-                    bg-gradient-to-r ${project.gradient} text-white sm:py-3 sm:text-base
-                    hover:shadow-lg md:hover:scale-105 hover:shadow-black/20
+                    w-full transform rounded-xl bg-gradient-to-r py-2.5 text-sm font-semibold transition-all
+                    duration-300 ${project.gradient} text-white hover:shadow-lg hover:shadow-black/20
+                    sm:py-3 sm:text-base md:hover:scale-105
                     ${hoveredProject === index ? 'shadow-lg md:scale-105' : ''}
-                  `}>
+                  `}
+                  >
                     View Details
                     <svg
                       className="ml-2 inline-block h-4 w-4"

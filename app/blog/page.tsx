@@ -200,7 +200,7 @@ export default function BlogPage() {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex items-center">
                     <div
-                      className={`h-10 w-10 bg-gradient-to-r ${featuredPost.gradient} mr-3 flex items-center justify-center rounded-full sm:h-12 sm:w-12 sm:mr-4`}
+                      className={`h-10 w-10 bg-gradient-to-r ${featuredPost.gradient} mr-3 flex items-center justify-center rounded-full sm:mr-4 sm:h-12 sm:w-12`}
                     >
                       <span className="text-base font-semibold text-white sm:text-lg">
                         {featuredPost.author
@@ -239,7 +239,9 @@ export default function BlogPage() {
                           d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                         />
                       </svg>
-                      <span className="text-xs sm:text-sm">{featuredPost.views}</span>
+                      <span className="text-xs sm:text-sm">
+                        {featuredPost.views}
+                      </span>
                     </div>
                     <div className="flex items-center gap-1">
                       <svg
@@ -255,7 +257,9 @@ export default function BlogPage() {
                           d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                         />
                       </svg>
-                      <span className="text-xs sm:text-sm">{featuredPost.likes}</span>
+                      <span className="text-xs sm:text-sm">
+                        {featuredPost.likes}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -325,14 +329,14 @@ export default function BlogPage() {
                 >
                   <div
                     className={`
-                    flex h-full w-full flex-col overflow-hidden rounded-xl border sm:rounded-2xl
-                    border-white/40 bg-white/60 backdrop-blur-lg transition-all duration-500
-                    ${hoveredPost === index ? 'md:scale-105 bg-white/80 shadow-2xl shadow-black/10' : 'md:hover:bg-white/70 md:hover:shadow-xl'}
+                    flex h-full w-full flex-col overflow-hidden rounded-xl border border-white/40
+                    bg-white/60 backdrop-blur-lg transition-all duration-500 sm:rounded-2xl
+                    ${hoveredPost === index ? 'bg-white/80 shadow-2xl shadow-black/10 md:scale-105' : 'md:hover:bg-white/70 md:hover:shadow-xl'}
                   `}
                   >
                     {/* Image Placeholder */}
                     <div
-                      className={`h-40 sm:h-48 bg-gradient-to-br ${post.gradient} relative overflow-hidden`}
+                      className={`h-40 bg-gradient-to-br sm:h-48 ${post.gradient} relative overflow-hidden`}
                     >
                       {/* Overlay pattern */}
                       <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
@@ -422,7 +426,7 @@ export default function BlogPage() {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <div
-                            className={`h-8 w-8 sm:h-9 sm:w-9 bg-gradient-to-r ${post.gradient} mr-2.5 sm:mr-3 flex items-center justify-center rounded-full`}
+                            className={`h-8 w-8 bg-gradient-to-r sm:h-9 sm:w-9 ${post.gradient} mr-2.5 flex items-center justify-center rounded-full sm:mr-3`}
                           >
                             <span className="text-xs font-semibold text-white sm:text-sm">
                               {post.author
@@ -514,15 +518,20 @@ export default function BlogPage() {
               </h3>
               <div className="space-y-3 sm:space-y-4">
                 {blogPosts.slice(0, 3).map((post, index) => (
-                  <div key={index} className="group flex cursor-pointer gap-2.5 sm:gap-3">
+                  <div
+                    key={index}
+                    className="group flex cursor-pointer gap-2.5 sm:gap-3"
+                  >
                     <div
-                      className={`h-10 w-14 sm:h-12 sm:w-16 bg-gradient-to-br ${post.gradient} flex-shrink-0 rounded-md sm:rounded-lg`}
+                      className={`h-10 w-14 bg-gradient-to-br sm:h-12 sm:w-16 ${post.gradient} flex-shrink-0 rounded-md sm:rounded-lg`}
                     ></div>
                     <div className="min-w-0 flex-1">
                       <p className="line-clamp-2 text-xs font-semibold text-gray-900 transition-colors group-hover:text-blue-600 sm:text-sm">
                         {post.title}
                       </p>
-                      <p className="mt-0.5 text-[10px] text-gray-500 sm:mt-1 sm:text-xs">{post.date}</p>
+                      <p className="mt-0.5 text-[10px] text-gray-500 sm:mt-1 sm:text-xs">
+                        {post.date}
+                      </p>
                     </div>
                   </div>
                 ))}

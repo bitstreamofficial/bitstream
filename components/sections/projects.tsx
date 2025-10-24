@@ -23,7 +23,8 @@ const featuredProjects = [
   },
   {
     name: 'UniRide',
-    description: 'Student ride-sharing platform connecting university communities for safe, affordable transportation.',
+    description:
+      'Student ride-sharing platform connecting university communities for safe, affordable transportation.',
     image: '/images/project-uniride.jpg',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     category: 'Mobile App',
@@ -449,7 +450,11 @@ export function ProjectsSection() {
                         View Project
                       </Button>
                     </Link>
-                    <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Button
                         variant="outline"
                         className="group border-2 px-4 text-sm transition-all duration-300 hover:scale-105 hover:border-gray-300 hover:bg-gray-50 sm:text-base"
