@@ -179,17 +179,39 @@ export default function UniRidePage() {
       <nav className="fixed top-0 z-50 w-full border-b border-green-100 bg-white/95 shadow-sm backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
-            <Link
-              href="/projects/uniride"
-              className="flex items-center space-x-2"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-2xl">
-                🚴
-              </div>
-              <span className="text-2xl font-bold text-gray-900">
-                Uni<span className="text-green-600">Ride</span>
-              </span>
-            </Link>
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/"
+                className="flex items-center space-x-1 text-sm text-gray-600 transition-colors hover:text-green-600"
+              >
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                  />
+                </svg>
+                <span className="hidden sm:inline">Back to BitStream</span>
+                <span className="sm:hidden">Back</span>
+              </Link>
+              <Link
+                href="/projects/uniride"
+                className="flex items-center space-x-2"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-green-600 text-2xl">
+                  🚴
+                </div>
+                <span className="text-2xl font-bold text-gray-900">
+                  Uni<span className="text-green-600">Ride</span>
+                </span>
+              </Link>
+            </div>
 
             <div className="hidden items-center space-x-8 md:flex">
               <a
