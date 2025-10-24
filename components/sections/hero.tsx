@@ -1,98 +1,135 @@
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-20 md:pt-0">
       {/* Animated Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 -z-10">
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8b5cf6_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf6_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-10" />
 
         {/* Floating Orb - Reduced to single element */}
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mix-blend-multiply filter blur-2xl opacity-20 animate-blob" />
+        <div className="animate-blob absolute right-1/4 top-1/3 h-96 w-96 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 opacity-20 mix-blend-multiply blur-2xl filter" />
 
         {/* Enhanced Stylish Floating Card */}
-        <div className="absolute top-20 right-20 w-56 h-32 hidden lg:block animate-float group">
+        <div className="animate-float group absolute right-4 top-32 z-10 hidden h-32 w-56 lg:right-8 lg:block xl:right-20">
           {/* Main card */}
-          <div className="relative w-full h-full bg-gradient-to-br from-white/20 via-blue-50/30 to-purple-50/20 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-500 overflow-hidden">
+          <div className="hover:shadow-3xl relative h-full w-full transform overflow-hidden rounded-3xl border border-white/30 bg-gradient-to-br from-white/20 via-blue-50/30 to-purple-50/20 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-105">
             {/* Animated gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 via-purple-400/10 to-pink-400/10 animate-gradient-x opacity-60" />
-            
+            <div className="animate-gradient-x absolute inset-0 bg-gradient-to-r from-blue-400/10 via-purple-400/10 to-pink-400/10 opacity-60" />
+
             {/* Floating particles/dots */}
-            <div className="absolute top-4 left-4 w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-            <div className="absolute top-6 right-6 w-1.5 h-1.5 bg-purple-400 rounded-full animate-ping animation-delay-300" />
-            <div className="absolute bottom-5 left-6 w-1 h-1 bg-pink-400 rounded-full animate-bounce animation-delay-500" />
-            
+            <div className="absolute left-4 top-4 h-2 w-2 animate-pulse rounded-full bg-blue-400" />
+            <div className="animation-delay-300 absolute right-6 top-6 h-1.5 w-1.5 animate-ping rounded-full bg-purple-400" />
+            <div className="animation-delay-500 absolute bottom-5 left-6 h-1 w-1 animate-bounce rounded-full bg-pink-400" />
+
             {/* Content */}
-            <div className="relative z-10 p-6 h-full flex flex-col justify-center">
-              <div className="flex items-center mb-2">
-                <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mr-3 animate-pulse" />
-                <span className="text-sm font-semibold text-gray-700/90">Live Projects</span>
+            <div className="relative z-10 flex h-full flex-col justify-center p-6">
+              <div className="mb-2 flex items-center">
+                <div className="mr-3 h-3 w-3 animate-pulse rounded-full bg-gradient-to-r from-green-400 to-emerald-400" />
+                <span className="text-sm font-semibold text-gray-700/90">
+                  Live Projects
+                </span>
               </div>
-              <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-1">
+              <div className="mb-1 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-2xl font-bold text-transparent">
                 5 Active
               </div>
-              <div className="text-xs text-gray-600/80 font-medium">
+              <div className="text-xs font-medium text-gray-600/80">
                 In Development
               </div>
             </div>
-            
+
             {/* Hover glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
-            
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 opacity-0 blur-sm transition-opacity duration-500 group-hover:opacity-100" />
+
             {/* Border glow */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 p-[1px] opacity-0 group-hover:opacity-50 transition-opacity duration-500">
-              <div className="w-full h-full bg-transparent rounded-3xl" />
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 p-[1px] opacity-0 transition-opacity duration-500 group-hover:opacity-50">
+              <div className="h-full w-full rounded-3xl bg-transparent" />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="relative container-custom z-10">
-        <div className="max-w-5xl mx-auto text-center">
+      <div className="container-custom relative z-10">
+        <div className="mx-auto max-w-5xl text-center">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-white/30 shadow-lg mb-8 animate-fade-in-up">
-            <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
-            <span className="text-sm font-medium text-gray-700">Available for new projects</span>
+          <div className="animate-fade-in-up mb-8 inline-flex items-center rounded-full border border-white/30 bg-white/80 px-4 py-2 shadow-lg backdrop-blur-sm">
+            <div className="mr-2 h-2 w-2 animate-pulse rounded-full bg-green-500" />
+            <span className="text-sm font-medium text-gray-700">
+              Available for new projects
+            </span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 mb-8 animate-fade-in-up animation-delay-200">
+          <h1 className="animate-fade-in-up animation-delay-200 mb-8 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl">
             Building{' '}
             <span className="relative">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 animate-gradient-x">
+              <span className="animate-gradient-x bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
                 scalable
               </span>
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 rounded-full transform scale-x-0 animate-scale-x animation-delay-1000" />
+              <div className="animate-scale-x animation-delay-1000 absolute -bottom-2 left-0 right-0 h-1 scale-x-0 transform rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600" />
             </span>{' '}
             solutions
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed animate-fade-in-up animation-delay-400">
+          <p className="animate-fade-in-up animation-delay-400 mx-auto mb-10 max-w-4xl text-xl leading-relaxed text-gray-600 md:text-2xl">
             We craft{' '}
-            <span className="font-semibold text-blue-600">innovative mobile & web experiences</span>{' '}
+            <span className="font-semibold text-blue-600">
+              innovative mobile & web experiences
+            </span>{' '}
             that scale with your vision and deliver{' '}
-            <span className="font-semibold text-purple-600">extraordinary results</span>.
+            <span className="font-semibold text-purple-600">
+              extraordinary results
+            </span>
+            .
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fade-in-up animation-delay-600">
+          <div className="animate-fade-in-up animation-delay-600 mb-16 flex flex-col items-center justify-center gap-6 sm:flex-row">
             <Link href="/contact">
-              <Button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 border-0 cursor-pointer">
+              <Button className="group relative transform cursor-pointer rounded-xl border-0 bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:from-blue-700 hover:to-purple-700 hover:shadow-2xl">
                 <span className="relative z-10">Let's build together</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
-                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 blur transition-opacity duration-300 group-hover:opacity-50" />
+                <svg
+                  className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Button>
             </Link>
             <Link href="/projects">
-              <Button variant="outline" className="group px-8 py-4 bg-white/80 backdrop-blur-sm border-2 border-gray-200 hover:border-blue-300 text-gray-700 hover:text-blue-600 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-                <svg className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              <Button
+                variant="outline"
+                className="group transform cursor-pointer rounded-xl border-2 border-gray-200 bg-white/80 px-8 py-4 text-lg font-semibold text-gray-700 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:text-blue-600 hover:shadow-xl"
+              >
+                <svg
+                  className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:scale-110"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
                 </svg>
                 Explore our work
               </Button>
@@ -100,33 +137,55 @@ export function HeroSection() {
           </div>
 
           {/* Stats with Modern Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 animate-fade-in-up animation-delay-800">
+          <div className="animate-fade-in-up animation-delay-800 mt-20 grid grid-cols-2 gap-6 md:grid-cols-4">
             {[
-              { value: '150+', label: 'Projects Delivered', color: 'from-blue-500 to-cyan-500' },
-              { value: '7+', label: 'Years Experience', color: 'from-purple-500 to-pink-500' },
-              { value: '99%', label: 'Client Satisfaction', color: 'from-green-500 to-teal-500' },
-              { value: '24/7', label: 'Support Available', color: 'from-orange-500 to-red-500' }
+              {
+                value: '150+',
+                label: 'Projects Delivered',
+                color: 'from-blue-500 to-cyan-500',
+              },
+              {
+                value: '7+',
+                label: 'Years Experience',
+                color: 'from-purple-500 to-pink-500',
+              },
+              {
+                value: '99%',
+                label: 'Client Satisfaction',
+                color: 'from-green-500 to-teal-500',
+              },
+              {
+                value: '24/7',
+                label: 'Support Available',
+                color: 'from-orange-500 to-red-500',
+              },
             ].map((stat, index) => (
               <div key={index} className="group relative">
-                <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-6 border border-white/40 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
-                  <div className={`text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${stat.color} mb-2`}>
+                <div className="relative transform rounded-2xl border border-white/40 bg-white/60 p-6 shadow-xl backdrop-blur-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                  <div
+                    className={`bg-gradient-to-r bg-clip-text text-3xl font-bold text-transparent md:text-4xl ${stat.color} mb-2`}
+                  >
                     {stat.value}
                   </div>
-                  <div className="text-gray-600 font-medium text-sm">{stat.label}</div>
-                  <div className={`absolute inset-0 bg-gradient-to-r ${stat.color} rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                  <div className="text-sm font-medium text-gray-600">
+                    {stat.label}
+                  </div>
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-r ${stat.color} rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
+                  />
                 </div>
               </div>
             ))}
           </div>
 
           {/* Scroll Indicator - Hidden on mobile */}
-          <div className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-scroll" />
+          <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 transform animate-bounce md:block">
+            <div className="flex h-10 w-6 justify-center rounded-full border-2 border-gray-400">
+              <div className="animate-scroll mt-2 h-3 w-1 rounded-full bg-gray-400" />
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

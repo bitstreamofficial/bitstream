@@ -1,7 +1,7 @@
 # BitStream - Next.js Starter Template
 
 <div align="center">
-  <img src="./public/images/logo.svg" alt="BitStream Logo" width="120" height="120">
+  <img src="./public/images/logo.png" alt="BitStream Logo" width="120" height="120">
   
   ### Building scalable mobile & web solutions
   
@@ -17,7 +17,7 @@ BitStream is a modern, high-performance Next.js starter template designed for bu
 
 ### ✨ Live Demo
 
-Visit our live demo: [bitstream-demo.vercel.app](https://your-demo-url.com)
+Visit our live demo: [bitstream-demo.vercel.app](https://bitstream-demo.vercel.app)
 
 ## 🎯 Features
 
@@ -356,7 +356,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support & Contact
 
 - **Email**: [official.bitstream@gmail.com](mailto:official.bitstream@gmail.com)
-- **Website**: [bitstream.dev](https://bitstream.dev)
+- **Website**: [bitstreamhq.com](https://bitstreamhq.com)
 - **Response Time**: Within 24 hours
 - **Support**: 24/7 Available
 

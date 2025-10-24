@@ -7,6 +7,7 @@ The code has been updated to use your logo image. Now you just need to add your 
 ## 📁 Where to Add Your Logo
 
 Replace the existing logo file at:
+
 ```
 public/images/logo.svg
 ```
@@ -14,12 +15,14 @@ public/images/logo.svg
 ## 🎨 Logo Requirements
 
 ### For Navbar Logo:
+
 - **Format**: SVG (recommended) or PNG
 - **Size**: Square format (e.g., 512x512px, 1024x1024px)
 - **Background**: Transparent
 - **File name**: `logo.svg` or `logo.png`
 
 ### For Favicon (Browser Tab Icon):
+
 The same logo will be used as the favicon automatically!
 
 ## 🔄 If You Have a PNG Logo Instead
@@ -27,16 +30,19 @@ The same logo will be used as the favicon automatically!
 If your logo is PNG format, update line 85 in `components/ui/navbar.tsx`:
 
 Change:
+
 ```tsx
-src="/images/logo.svg"
+src = '/images/logo.svg';
 ```
 
 To:
+
 ```tsx
-src="/images/logo.png"
+src = '/images/logo.png';
 ```
 
 And also update `app/layout.tsx` line 13:
+
 ```tsx
 { url: '/images/logo.png', type: 'image/png' },
 ```

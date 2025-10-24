@@ -3,21 +3,27 @@ import './globals.css'
 import { Header } from '@/components/layout/header'
 import { ConditionalFooter } from '@/components/layout/conditional-footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: {
     default: 'BitStream - Building scalable mobile & web solutions',
-    template: '%s | BitStream'
+    template: '%s | BitStream',
   },
-  description: 'BitStream specializes in building scalable mobile and web solutions. We create innovative digital experiences that drive business growth.',
-  keywords: ['web development', 'mobile development', 'scalable solutions', 'BitStream'],
+  description:
+    'BitStream specializes in building scalable mobile and web solutions. We create innovative digital experiences that drive business growth.',
+  keywords: [
+    'web development',
+    'mobile development',
+    'scalable solutions',
+    'BitStream',
+  ],
   authors: [{ name: 'BitStream Team' }],
   creator: 'BitStream',
   icons: {
     icon: [
       { url: '/images/url_logo.png', type: 'image/png' },
-      { url: '/icons/favicon.ico', sizes: 'any' }
+      { url: '/icons/favicon.ico', sizes: 'any' },
     ],
     apple: '/icons/icon-192x192.png',
   },
@@ -26,7 +32,8 @@ export const metadata = {
     locale: 'en_US',
     url: 'https://bitstream.com',
     title: 'BitStream - Building scalable mobile & web solutions',
-    description: 'BitStream specializes in building scalable mobile and web solutions.',
+    description:
+      'BitStream specializes in building scalable mobile and web solutions.',
     siteName: 'BitStream',
     images: [
       {
@@ -34,13 +41,14 @@ export const metadata = {
         width: 1200,
         height: 630,
         alt: 'BitStream Logo',
-      }
+      },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'BitStream - Building scalable mobile & web solutions',
-    description: 'BitStream specializes in building scalable mobile and web solutions.',
+    description:
+      'BitStream specializes in building scalable mobile and web solutions.',
     creator: '@bitstream',
     images: ['/images/logo.png'],
   },
@@ -48,17 +56,17 @@ export const metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" className="light" suppressHydrationWarning>
-      <body className={inter.className}>
-        <div className="min-h-screen flex flex-col bg-white">
+      <body className={`${inter.className} overflow-x-hidden`}>
+        <div className="flex min-h-screen flex-col overflow-x-hidden bg-white">
           <Header />
           <main className="flex-1">
             {children}
@@ -67,5 +75,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }

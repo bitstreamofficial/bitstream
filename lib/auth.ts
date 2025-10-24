@@ -1,7 +1,7 @@
-import { NextAuthOptions } from 'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials'
-import { connectToDatabase } from './db'
-import bcrypt from 'bcryptjs'
+import { NextAuthOptions } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { connectToDatabase } from './db';
+import bcrypt from 'bcryptjs';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -9,44 +9,44 @@ export const authOptions: NextAuthOptions = {
       name: 'credentials',
       credentials: {
         email: { label: 'Email', type: 'email' },
-        password: { label: 'Password', type: 'password' }
+        password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          return null
+          return null;
         }
 
         try {
-          const { db } = await connectToDatabase()
+          const { db } = await connectToDatabase();
           const user = await db.collection('users').findOne({
-            email: credentials.email
-          })
+            email: credentials.email,
+          });
 
           if (!user) {
-            return null
+            return null;
           }
 
           // Verify password using bcrypt
           const isPasswordValid = await bcrypt.compare(
             credentials.password,
             user.password
-          )
+          );
 
           if (!isPasswordValid) {
-            return null
+            return null;
           }
 
           return {
             id: user._id.toString(),
             email: user.email,
             name: user.name,
-          }
+          };
         } catch (error) {
-          console.error('Auth error:', error)
-          return null
+          console.error('Auth error:', error);
+          return null;
         }
-      }
-    })
+      },
+    }),
   ],
   session: {
     strategy: 'jwt',
@@ -57,18 +57,18 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id
+        token.id = user.id;
       }
-      return token
+      return token;
     },
     async session({ session, token }) {
       if (token && session.user) {
         session.user = {
           ...session.user,
           id: token.id as string,
-        }
+        };
       }
-      return session
-    }
-  }
-}
+      return session;
+    },
+  },
+};
