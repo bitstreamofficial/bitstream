@@ -24,8 +24,8 @@ export default function UniRideFooter() {
               </span>
             </div>
             <p className="mb-6 text-white/70">
-              Made by students, for students. Safe, affordable bike
-              ride-sharing for campus communities.
+              Made by students, for students. Safe, affordable bike ride-sharing
+              for campus communities.
             </p>
             {/* Social Icons */}
             <div className="flex space-x-4">
