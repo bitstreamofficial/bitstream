@@ -143,6 +143,14 @@ export default function UniRideFooter() {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="/projects/uniride/account-deletion-request"
+                  className="text-white/70 transition-colors hover:text-[#1DA1F2]"
+                >
+                  Account Deletion
+                </Link>
+              </li>
+              <li>
                 <a
                   href="#"
                   className="text-white/70 transition-colors hover:text-[#1DA1F2]"
