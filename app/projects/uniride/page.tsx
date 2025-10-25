@@ -206,7 +206,6 @@ export default function UniRidePage() {
       image: '/images/lola.jpg',
       text: 'Finally, an app made just for our university! Easy to post rides and find passengers.',
     },
-    
   ];
 
   // Drag/Swipe handlers for testimonials slider
@@ -267,8 +266,6 @@ export default function UniRidePage() {
                     d="M10 19l-7-7m0 0l7-7m-7 7h18"
                   />
                 </svg>
-                
-                
               </Link>
               <Link
                 href="/projects/uniride"
@@ -325,7 +322,7 @@ export default function UniRidePage() {
             </div>
 
             {/* Mobile menu button */}
-            <button 
+            <button
               className="md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
@@ -356,7 +353,7 @@ export default function UniRidePage() {
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden border-t border-[#5CE65C]/20 bg-white">
+            <div className="border-t border-[#5CE65C]/20 bg-white md:hidden">
               <div className="space-y-1 px-4 pb-3 pt-2">
                 <a
                   href="#features"
@@ -393,7 +390,7 @@ export default function UniRidePage() {
                 >
                   Terms
                 </Link>
-                <button 
+                <button
                   className="mt-2 w-full rounded-full bg-[#5CE65C] px-6 py-2 text-center font-semibold text-[#333333] shadow-md transition-all duration-300 hover:bg-[#1DA1F2] hover:text-white"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -453,11 +450,15 @@ export default function UniRidePage() {
               <div className="mt-12 flex flex-wrap items-center justify-center gap-8 lg:justify-start">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-[#333333]">500+</div>
-                  <div className="text-sm text-[#333333]/70">Active Students</div>
+                  <div className="text-sm text-[#333333]/70">
+                    Active Students
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-[#333333]">1000+</div>
-                  <div className="text-sm text-[#333333]/70">Rides Completed</div>
+                  <div className="text-sm text-[#333333]/70">
+                    Rides Completed
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-[#333333]">4.9⭐</div>
@@ -519,7 +520,9 @@ export default function UniRidePage() {
                   <div className="flex items-center space-x-2">
                     <div className="text-xl sm:text-2xl">💰</div>
                     <div>
-                      <div className="text-xs text-[#333333]/70">Save up to</div>
+                      <div className="text-xs text-[#333333]/70">
+                        Save up to
+                      </div>
                       <div className="text-sm font-bold text-[#5CE65C] sm:text-base">
                         70%
                       </div>
@@ -642,9 +645,9 @@ export default function UniRidePage() {
 
         {/* Slider Container - Full Width */}
         <div className="relative">
-          <div 
+          <div
             ref={sliderRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing px-4 sm:px-6 lg:px-8 py-4"
+            className="scrollbar-hide flex cursor-grab gap-4 overflow-x-auto px-4 py-4 active:cursor-grabbing sm:px-6 lg:px-8"
             style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -658,47 +661,51 @@ export default function UniRidePage() {
             {[...testimonials, ...testimonials].map((testimonial, index) => (
               <div
                 key={index}
-                  className="w-[85vw] sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] flex-shrink-0 rounded-3xl bg-gradient-to-br from-[#5CE65C]/10 to-[#1DA1F2]/10 p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-                >
-                  <div className="mb-6 flex items-center space-x-4">
-                    <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full bg-white shadow-md">
-                      {testimonial.image ? (
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          fill
-                          className="object-cover"
-                        />
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center text-4xl">
-                          {testimonial.avatar}
-                        </div>
-                      )}
+                className="w-[85vw] flex-shrink-0 rounded-3xl bg-gradient-to-br from-[#5CE65C]/10 to-[#1DA1F2]/10 p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)]"
+              >
+                <div className="mb-6 flex items-center space-x-4">
+                  <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full bg-white shadow-md">
+                    {testimonial.image ? (
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center text-4xl">
+                        {testimonial.avatar}
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <div className="font-bold text-[#333333]">
+                      {testimonial.name}
                     </div>
-                    <div>
-                      <div className="font-bold text-[#333333]">
-                        {testimonial.name}
-                      </div>
-                      <div className="text-sm text-[#333333]/70">
-                        {testimonial.university}
-                      </div>
-                      <div className="mt-1">
-                        <span className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
-                          testimonial.userType === 'Rider' 
-                            ? 'bg-[#5CE65C]/20 text-[#5CE65C]' 
+                    <div className="text-sm text-[#333333]/70">
+                      {testimonial.university}
+                    </div>
+                    <div className="mt-1">
+                      <span
+                        className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
+                          testimonial.userType === 'Rider'
+                            ? 'bg-[#5CE65C]/20 text-[#5CE65C]'
                             : 'bg-[#1DA1F2]/20 text-[#1DA1F2]'
-                        }`}>
-                          {testimonial.userType === 'Rider' ? '🚴 Rider' : '🎒 Passenger'}
-                        </span>
-                      </div>
+                        }`}
+                      >
+                        {testimonial.userType === 'Rider'
+                          ? '🚴 Rider'
+                          : '🎒 Passenger'}
+                      </span>
                     </div>
                   </div>
-                  <p className="text-[#333333]">"{testimonial.text}"</p>
-                  <div className="mt-4 text-[#5CE65C]">⭐⭐⭐⭐⭐</div>
                 </div>
-              ))}
-            </div>
+                <p className="text-[#333333]">"{testimonial.text}"</p>
+                <div className="mt-4 text-[#5CE65C]">⭐⭐⭐⭐⭐</div>
+              </div>
+            ))}
           </div>
+        </div>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Community CTA */}
@@ -861,7 +868,7 @@ export default function UniRidePage() {
                   href="https://www.facebook.com/uniride/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-[#1DA1F2] hover:scale-110"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:scale-110 hover:bg-[#1DA1F2]"
                   title="Facebook Page"
                 >
                   <svg
@@ -876,7 +883,7 @@ export default function UniRidePage() {
                   href="https://www.facebook.com/groups/uniriderscommunity"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-[#5CE65C] hover:scale-110"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:scale-110 hover:bg-[#5CE65C]"
                   title="Facebook Group"
                 >
                   <svg
@@ -889,7 +896,7 @@ export default function UniRidePage() {
                 </a>
                 <a
                   href="mailto:asteriskshq@gmail.com"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:bg-[#1DA1F2] hover:scale-110"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:scale-110 hover:bg-[#1DA1F2]"
                   title="Email Us"
                 >
                   <svg

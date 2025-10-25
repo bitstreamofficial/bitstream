@@ -33,7 +33,9 @@ export async function connectToDatabase(): Promise<{
   db: Db;
 }> {
   if (!clientPromise) {
-    throw new Error('MONGODB_URI is not configured. Set the MONGODB_URI environment variable.');
+    throw new Error(
+      'MONGODB_URI is not configured. Set the MONGODB_URI environment variable.'
+    );
   }
 
   const client = await clientPromise;
