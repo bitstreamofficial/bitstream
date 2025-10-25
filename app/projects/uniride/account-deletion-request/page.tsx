@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import UniRideHeader from "@/components/layout/uniride-header";
+import UniRideFooter from "@/components/layout/uniride-footer";
 
 export default function AccountDeletionRequestPage() {
   const [email, setEmail] = useState("");
@@ -47,7 +49,9 @@ export default function AccountDeletionRequestPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="mx-auto max-w-3xl px-6 py-24">
+      <UniRideHeader />
+
+      <div className="mx-auto max-w-3xl px-6 py-24 mt-16">
         <div className="mb-8">
           <h1 className="mb-2 text-4xl font-bold text-[#333333]">Account Deletion Request</h1>
           <p className="text-[#333333]/80">Submit a request to permanently delete your UniRide account. We'll verify and respond via email.</p>
@@ -126,6 +130,8 @@ export default function AccountDeletionRequestPage() {
           </p>
         </div>
       </div>
+
+      <UniRideFooter />
     </div>
   );
 }

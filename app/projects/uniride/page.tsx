@@ -1,11 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 export default function UniRidePage() {
   const [scrollY, setScrollY] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -154,24 +159,89 @@ export default function UniRidePage() {
 
   const testimonials = [
     {
+      name: 'Shahnewaz Seem',
+      university: 'Daffodil International University',
+      userType: 'Rider',
+      avatar: '👩‍💼',
+      image: '/images/saeem.jpg',
+      text: 'It feels good helping others reach campus while saving on fuel costs.',
+    },
+    {
       name: 'Adnan Rahman Sayeem',
       university: 'Daffodil International University',
+      userType: 'Passenger',
       avatar: '👩‍🎓',
+      image: '/images/adnan.jpg',
       text: "UniRide has made my daily commute so much easier and cheaper. I've met amazing people!",
     },
     {
       name: 'Pronob Sarkar',
       university: 'Daffodil International University',
+      userType: 'Rider',
       avatar: '👨‍🎓',
+      image: '/images/pronob.jpg',
       text: 'Best income source as a student who has a bike. I earn while going to campus anyway!',
     },
     {
       name: 'Zadid Al Lisan',
       university: 'Daffodil International University',
+      userType: 'Passenger',
       avatar: '👩‍💼',
+      image: '/images/lisan.jpg',
       text: 'I love how easy it is to find rides. The verification system makes me feel secure.',
     },
+    {
+      name: 'Afif Hasan',
+      university: 'Daffodil International University',
+      userType: 'Rider',
+      avatar: '👩‍💼',
+      image: '/images/afif.jpg',
+      text: 'A great way to share rides with fellow students. The route matching saves me a lot of time.',
+    },
+    {
+      name: 'Shakhawat Hossain',
+      university: 'Daffodil International University',
+      userType: 'Rider',
+      avatar: '👩‍💼',
+      image: '/images/lola.jpg',
+      text: 'Finally, an app made just for our university! Easy to post rides and find passengers.',
+    },
+    
   ];
+
+  // Drag/Swipe handlers for testimonials slider
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!sliderRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - sliderRef.current.offsetLeft);
+    setScrollLeft(sliderRef.current.scrollLeft);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!sliderRef.current) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - sliderRef.current.offsetLeft);
+    setScrollLeft(sliderRef.current.scrollLeft);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !sliderRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    sliderRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !sliderRef.current) return;
+    const x = e.touches[0].pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    sliderRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -198,7 +268,7 @@ export default function UniRidePage() {
                   />
                 </svg>
                 
-                <span className="sm:hidden">Back</span>
+                
               </Link>
               <Link
                 href="/projects/uniride"
@@ -218,59 +288,120 @@ export default function UniRidePage() {
               </Link>
             </div>
 
-            <div className="hidden items-center space-x-8 md:flex">
+            <div className="hidden items-center space-x-4 md:flex lg:space-x-8">
               <a
                 href="#features"
-                className="text-[#333333] transition-colors hover:text-[#1DA1F2]"
+                className="text-sm text-[#333333] transition-colors hover:text-[#1DA1F2] lg:text-base"
               >
                 Features
               </a>
               <a
                 href="#how-it-works"
-                className="text-[#333333] transition-colors hover:text-[#1DA1F2]"
+                className="text-sm text-[#333333] transition-colors hover:text-[#1DA1F2] lg:text-base"
               >
                 How It Works
               </a>
               <a
                 href="#testimonials"
-                className="text-[#333333] transition-colors hover:text-[#1DA1F2]"
+                className="text-sm text-[#333333] transition-colors hover:text-[#1DA1F2] lg:text-base"
               >
                 Reviews
               </a>
               <Link
                 href="/projects/uniride/privacy-policy"
-                className="text-[#333333] transition-colors hover:text-[#1DA1F2]"
+                className="text-sm text-[#333333] transition-colors hover:text-[#1DA1F2] lg:text-base"
               >
                 Privacy
               </Link>
               <Link
                 href="/projects/uniride/terms-of-service"
-                className="text-[#333333] transition-colors hover:text-[#1DA1F2]"
+                className="text-sm text-[#333333] transition-colors hover:text-[#1DA1F2] lg:text-base"
               >
                 Terms
               </Link>
-              <button className="rounded-full bg-[#5CE65C] px-6 py-2 font-semibold text-[#333333] shadow-md transition-all duration-300 hover:scale-105 hover:bg-[#1DA1F2] hover:text-white hover:shadow-lg">
+              <button className="rounded-full bg-[#5CE65C] px-4 py-2 text-sm font-semibold text-[#333333] shadow-md transition-all duration-300 hover:scale-105 hover:bg-[#1DA1F2] hover:text-white hover:shadow-lg lg:px-6">
                 Download
               </button>
             </div>
 
             {/* Mobile menu button */}
-            <button className="md:hidden">
+            <button 
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
               <svg
                 className="h-6 w-6 text-[#333333]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                {mobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
               </svg>
             </button>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t border-[#5CE65C]/20 bg-white">
+              <div className="space-y-1 px-4 pb-3 pt-2">
+                <a
+                  href="#features"
+                  className="block rounded-lg px-3 py-2 text-base font-medium text-[#333333] hover:bg-[#5CE65C]/10 hover:text-[#1DA1F2]"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Features
+                </a>
+                <a
+                  href="#how-it-works"
+                  className="block rounded-lg px-3 py-2 text-base font-medium text-[#333333] hover:bg-[#5CE65C]/10 hover:text-[#1DA1F2]"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  How It Works
+                </a>
+                <a
+                  href="#testimonials"
+                  className="block rounded-lg px-3 py-2 text-base font-medium text-[#333333] hover:bg-[#5CE65C]/10 hover:text-[#1DA1F2]"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Reviews
+                </a>
+                <Link
+                  href="/projects/uniride/privacy-policy"
+                  className="block rounded-lg px-3 py-2 text-base font-medium text-[#333333] hover:bg-[#5CE65C]/10 hover:text-[#1DA1F2]"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Privacy
+                </Link>
+                <Link
+                  href="/projects/uniride/terms-of-service"
+                  className="block rounded-lg px-3 py-2 text-base font-medium text-[#333333] hover:bg-[#5CE65C]/10 hover:text-[#1DA1F2]"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Terms
+                </Link>
+                <button 
+                  className="mt-2 w-full rounded-full bg-[#5CE65C] px-6 py-2 text-center font-semibold text-[#333333] shadow-md transition-all duration-300 hover:bg-[#1DA1F2] hover:text-white"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Download
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -477,10 +608,12 @@ export default function UniRidePage() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group rounded-3xl bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                className="group rounded-3xl bg-white p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
               >
-                <div className="mb-6 inline-flex rounded-2xl bg-[#5CE65C]/10 p-4 text-[#5CE65C] transition-colors duration-300 group-hover:bg-[#1DA1F2] group-hover:text-white">
-                  {feature.icon}
+                <div className="mb-6 flex justify-center">
+                  <div className="rounded-2xl bg-[#5CE65C]/10 p-4 text-[#5CE65C] transition-colors duration-300 group-hover:bg-[#1DA1F2] group-hover:text-white">
+                    {feature.icon}
+                  </div>
                 </div>
                 <h3 className="mb-3 text-xl font-bold text-[#333333]">
                   {feature.title}
@@ -505,32 +638,69 @@ export default function UniRidePage() {
               See what our student community has to say
             </p>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {testimonials.map((testimonial, index) => (
+        {/* Slider Container - Full Width */}
+        <div className="relative">
+          <div 
+            ref={sliderRef}
+            className="flex gap-4 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing px-4 sm:px-6 lg:px-8 py-4"
+            style={{ scrollBehavior: isDragging ? 'auto' : 'smooth' }}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleDragEnd}
+            onMouseLeave={handleDragEnd}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleDragEnd}
+          >
+            {/* Duplicate testimonials for seamless loop */}
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
               <div
                 key={index}
-                className="rounded-3xl bg-gradient-to-br from-[#5CE65C]/10 to-[#1DA1F2]/10 p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-              >
-                <div className="mb-6 flex items-center space-x-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-4xl shadow-md">
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <div className="font-bold text-[#333333]">
-                      {testimonial.name}
+                  className="w-[85vw] sm:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] flex-shrink-0 rounded-3xl bg-gradient-to-br from-[#5CE65C]/10 to-[#1DA1F2]/10 p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                >
+                  <div className="mb-6 flex items-center space-x-4">
+                    <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full bg-white shadow-md">
+                      {testimonial.image ? (
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-4xl">
+                          {testimonial.avatar}
+                        </div>
+                      )}
                     </div>
-                    <div className="text-sm text-[#333333]/70">
-                      {testimonial.university}
+                    <div>
+                      <div className="font-bold text-[#333333]">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-sm text-[#333333]/70">
+                        {testimonial.university}
+                      </div>
+                      <div className="mt-1">
+                        <span className={`inline-block rounded-full px-3 py-1 text-xs font-semibold ${
+                          testimonial.userType === 'Rider' 
+                            ? 'bg-[#5CE65C]/20 text-[#5CE65C]' 
+                            : 'bg-[#1DA1F2]/20 text-[#1DA1F2]'
+                        }`}>
+                          {testimonial.userType === 'Rider' ? '🚴 Rider' : '🎒 Passenger'}
+                        </span>
+                      </div>
                     </div>
                   </div>
+                  <p className="text-[#333333]">"{testimonial.text}"</p>
+                  <div className="mt-4 text-[#5CE65C]">⭐⭐⭐⭐⭐</div>
                 </div>
-                <p className="text-[#333333]">"{testimonial.text}"</p>
-                <div className="mt-4 text-[#5CE65C]">⭐⭐⭐⭐⭐</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Community CTA */}
           <div className="mt-16 rounded-3xl bg-gradient-to-r from-[#5CE65C] to-[#1DA1F2] p-12 text-center text-white shadow-2xl">
             <h3 className="mb-4 text-3xl font-bold">
@@ -562,7 +732,7 @@ export default function UniRidePage() {
       </section>
 
       {/* Download / CTA Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#5CE65C] via-[#1DA1F2] to-[#5CE65C] py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#8bdd8b] via-[#1DA1F2] to-[#4a7e4a] py-20">
         {/* Animated background */}
         <div className="absolute inset-0">
           <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-white opacity-10 blur-3xl"></div>
@@ -798,6 +968,14 @@ export default function UniRidePage() {
                     className="text-white/70 transition-colors hover:text-[#1DA1F2]"
                   >
                     Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/projects/uniride/account-deletion-request"
+                    className="text-white/70 transition-colors hover:text-[#1DA1F2]"
+                  >
+                    Account Deletion
                   </Link>
                 </li>
                 <li>
