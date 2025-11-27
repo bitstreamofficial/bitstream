@@ -73,6 +73,8 @@ jobs:
 
       - name: Start application
         run: npm start &
+        env:
+          PORT: 3000
 
       - name: Wait for server
         run: npx wait-on http://localhost:3000
@@ -80,6 +82,6 @@ jobs:
       - name: Run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.12.x
-          lhci autorun
+          lhci autorun --collect.url=http://localhost:3000
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
