@@ -17,7 +17,11 @@ BitStream is a modern, high-performance responsive web application built with Ne
 
 ### ✨ Live Demo
 
-Visit our live: [bitstreamhq.com](https://bitstreamhq.com)
+Visit our live site: [bitstreamhq.com](https://bitstreamhq.com)
+
+### 🎯 Featured Projects
+
+- **[UniRide](https://bitstreamhq.com/projects/uniride)** - Campus ride-sharing platform with real-time matching and interactive testimonials
 
 ## 🎯 Features
 
