@@ -1,4 +1,4 @@
-# BitStream - Next.js Starter Template
+# BitStream - Complete Responsive Web Application
 
 <div align="center">
   <img src="./public/images/logo.png" alt="BitStream Logo" width="120" height="120">
@@ -13,11 +13,11 @@
 
 ## 🚀 Overview
 
-BitStream is a modern, high-performance Next.js starter template designed for building scalable web applications. It features a beautiful landing page with glassmorphism design, comprehensive authentication, database integration, and a complete development toolkit.
+BitStream is a modern, high-performance responsive web application built with Next.js, showcasing software development services and projects. It features a beautiful glassmorphism design, dynamic project portfolios, interactive testimonials, contact management, comprehensive authentication, and database integration.
 
 ### ✨ Live Demo
 
-Visit our live demo: [bitstream-demo.vercel.app](https://bitstream-demo.vercel.app)
+Visit our live: [bitstreamhq.com](https://bitstreamhq.com)
 
 ## 🎯 Features
 
