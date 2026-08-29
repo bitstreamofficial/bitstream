@@ -6,8 +6,11 @@ import { Footer } from './footer';
 export function ConditionalFooter() {
   const pathname = usePathname();
 
-  // Don't show BitStream footer on UniRide pages
-  if (pathname?.startsWith('/projects/uniride')) {
+  // Product pages ship their own footer.
+  if (
+    pathname?.startsWith('/projects/uniride') ||
+    pathname?.startsWith('/open-routine')
+  ) {
     return null;
   }
 

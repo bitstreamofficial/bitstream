@@ -6,6 +6,20 @@ import Image from 'next/image';
 
 const projects = [
   {
+    name: 'Open Routine',
+    description:
+      'Class routine app for DIU. Turns the department\u2019s 2,000-class PDF into your own week \u2014 instantly, offline, no account.',
+    technologies: ['Flutter', 'FastAPI', 'SQLite', 'AWS'],
+    category: 'Mobile App',
+    status: 'Live',
+    icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+    gradient: 'from-teal-500 to-cyan-600',
+    bgGradient: 'from-teal-50 to-cyan-50',
+    mockupColor: 'bg-teal-100',
+    link: '/open-routine',
+    image: '/images/open-routine/icon.png',
+  },
+  {
     name: 'UniRide',
     description:
       'Student ride-sharing platform connecting university communities for safe, affordable transportation.',
