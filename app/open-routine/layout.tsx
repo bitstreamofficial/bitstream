@@ -1,17 +1,19 @@
 import type { Metadata } from 'next';
 
 const DESCRIPTION =
-  'Free, open-source class routine app for Daffodil International University. ' +
-  'Type your batch and get your week — instantly, offline, with no account.';
+  'Free forever — no subscription, no unlock fee, no account. The DIU class ' +
+  'routine app: type your batch, get your week, and it keeps working offline.';
 
 export const metadata: Metadata = {
-  title: 'Open Routine — DIU class routine, offline',
+  title: 'Open Routine — your DIU class routine, free forever',
   description: DESCRIPTION,
   keywords: [
     'DIU routine',
     'DIU class routine',
     'Daffodil International University routine',
     'CSE class routine',
+    'free DIU routine app',
+    'DIU routine without subscription',
     'DIU empty room',
     'DIU teacher schedule',
     'open routine app',
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://bitstreamhq.com/open-routine',
-    title: 'Open Routine — your DIU class routine, offline',
+    title: 'Open Routine — your DIU class routine, free forever',
     description: DESCRIPTION,
     siteName: 'BitStream',
     images: [
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Open Routine — your DIU class routine, offline',
+    title: 'Open Routine — your DIU class routine, free forever',
     description: DESCRIPTION,
     images: ['/images/open-routine/student.jpg'],
   },

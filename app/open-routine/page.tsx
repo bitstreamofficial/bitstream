@@ -13,7 +13,7 @@ const API = 'https://routine.bitstreamhq.com';
 const features = [
   {
     title: 'Your week, not everyone’s',
-    body: 'Type your batch. Your six days appear, grouped by day and sorted by time, with room and teacher on every class.',
+    body: 'Type your batch. Your six days appear, grouped by day and sorted by time, with room and teacher on every class. No paywall in front of any of it.',
     icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
   },
   {
@@ -43,6 +43,15 @@ const features = [
   },
 ];
 
+const freeItems = [
+  'Every feature, for everyone',
+  'No subscription or monthly fee',
+  'No one-time unlock',
+  'No free trial that expires',
+  'No account, email or phone number',
+  'No ads, ever',
+];
+
 const shots = [
   { src: '/images/open-routine/student.jpg', label: 'Your schedule' },
   { src: '/images/open-routine/teacher.jpg', label: 'Teacher profile' },
@@ -70,8 +79,12 @@ const steps = [
 
 const faqs = [
   {
-    q: 'Is it free?',
-    a: 'Yes, and it always will be. No account, no ads, no subscription, no payment of any kind. The entire source code is public.',
+    q: 'Is it really free, or free for now?',
+    a: 'Really free, permanently. There is no subscription, no unlock, no trial and no ads. It is also open source under the MIT licence, so if it ever did change, anyone could take the last free version and keep running it. That is the part a promise alone cannot give you.',
+  },
+  {
+    q: 'Then how is it paid for?',
+    a: 'It costs a few dollars a month to run one small server, covered by BitStream. There is nothing to monetise here — the routine is public information and the app holds no data worth selling.',
   },
   {
     q: 'Where does the routine come from?',
@@ -224,22 +237,19 @@ export default function OpenRoutinePage() {
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-slate-300">
               <span className="h-1.5 w-1.5 rounded-full bg-[#2DD4BF]" />
-              Free and open source · DIU CSE
+              Free forever · No account · Open source
             </span>
 
             <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-              Your class routine,
+              Checking your routine
               <br />
-              <span className="text-[#2DD4BF]">without the squinting.</span>
+              <span className="text-[#2DD4BF]">shouldn’t cost money.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
-              The department publishes one PDF with{' '}
-              <strong className="font-semibold text-white">
-                2,002 classes
-              </strong>{' '}
-              across ten pages. Type your batch and get just yours — instantly,
-              offline, and without an account.
+              No subscription. No unlock fee. No trial that expires the week
+              before finals. Type your batch, get your week — and it keeps
+              working when your data runs out.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -268,8 +278,8 @@ export default function OpenRoutinePage() {
 
             <dl className="mt-12 grid max-w-md grid-cols-3 gap-6">
               {[
+                ['৳0', 'forever'],
                 ['2,002', 'classes'],
-                ['72', 'rooms'],
                 ['219', 'teachers'],
               ].map(([v, l]) => (
                 <div key={l}>
@@ -376,6 +386,54 @@ export default function OpenRoutinePage() {
                 </figcaption>
               </figure>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------- pricing --- */}
+      <section className="border-t border-white/5 px-5 py-20">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid items-center gap-12 lg:grid-cols-[auto,1fr]">
+            <div className="text-center lg:text-left">
+              <div className="text-7xl font-bold tracking-tight text-[#2DD4BF] sm:text-8xl">
+                ৳0
+              </div>
+              <p className="mt-2 text-lg font-medium text-white">forever</p>
+              <p className="mt-1 text-sm text-slate-400">not a launch price</p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                A timetable is not a premium feature
+              </h2>
+              <p className="mt-4 leading-relaxed text-slate-400">
+                Your class routine is public information your department already
+                publishes. Knowing where to be at half past eight should not sit
+                behind a payment screen, so here it does not — and because the
+                whole thing is open source, it cannot quietly start to later.
+              </p>
+
+              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+                {freeItems.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <svg
+                      className="mt-0.5 h-5 w-5 shrink-0 text-[#2DD4BF]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span className="text-sm text-slate-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
