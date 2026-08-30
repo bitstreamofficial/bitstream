@@ -143,7 +143,7 @@ export default function OpenRoutinePage() {
             </span>
           </Link>
 
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-7 lg:flex">
             <a
               href="#features"
               className="text-sm text-slate-300 hover:text-white"
@@ -159,6 +159,18 @@ export default function OpenRoutinePage() {
             <a href="#faq" className="text-sm text-slate-300 hover:text-white">
               FAQ
             </a>
+            <Link
+              href="/open-routine/cost"
+              className="text-sm text-slate-300 hover:text-white"
+            >
+              Server cost
+            </Link>
+            <Link
+              href="/open-routine/system"
+              className="text-sm text-slate-300 hover:text-white"
+            >
+              Maintenance
+            </Link>
             <a
               href={GITHUB}
               target="_blank"
@@ -177,7 +189,7 @@ export default function OpenRoutinePage() {
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-1 text-slate-200 md:hidden"
+            className="p-1 text-slate-200 lg:hidden"
             aria-label="Menu"
             aria-expanded={menuOpen}
           >
@@ -199,22 +211,35 @@ export default function OpenRoutinePage() {
         </div>
 
         {menuOpen && (
-          <div className="border-t border-white/10 bg-[#0B1416] px-5 py-4 md:hidden">
+          <div className="border-t border-white/10 bg-[#0B1416] px-5 py-4 lg:hidden">
             {[
               ['Features', '#features'],
               ['Screens', '#screens'],
               ['FAQ', '#faq'],
+              ['Server cost', '/open-routine/cost'],
+              ['Maintenance', '/open-routine/system'],
               ['Download', '#download'],
-            ].map(([label, href]) => (
-              <a
-                key={href}
-                href={href}
-                onClick={() => setMenuOpen(false)}
-                className="block py-2.5 text-slate-200"
-              >
-                {label}
-              </a>
-            ))}
+            ].map(([label, href]) =>
+              href.startsWith('/') ? (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2.5 text-slate-200"
+                >
+                  {label}
+                </Link>
+              ) : (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2.5 text-slate-200"
+                >
+                  {label}
+                </a>
+              )
+            )}
             <a
               href={GITHUB}
               target="_blank"

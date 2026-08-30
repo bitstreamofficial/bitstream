@@ -131,8 +131,11 @@ export default function OpenRoutineSystemPage() {
               href="/open-routine/cost"
               className="hidden text-sm text-slate-300 hover:text-white sm:block"
             >
-              What it costs
+              Server cost
             </Link>
+            <span className="hidden text-sm font-medium text-white sm:block">
+              Maintenance
+            </span>
             <a
               href={GITHUB}
               target="_blank"

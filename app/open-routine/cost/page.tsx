@@ -168,11 +168,14 @@ export default function OpenRoutineCostPage() {
           </Link>
 
           <div className="flex items-center gap-6">
+            <span className="hidden text-sm font-medium text-white sm:block">
+              Server cost
+            </span>
             <Link
               href="/open-routine/system"
               className="hidden text-sm text-slate-300 hover:text-white sm:block"
             >
-              How it is maintained
+              Maintenance
             </Link>
             <a
               href={GITHUB}
