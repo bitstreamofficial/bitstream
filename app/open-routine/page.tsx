@@ -689,6 +689,14 @@ export default function OpenRoutinePage() {
                     </Link>
                   </li>
                   <li>
+                    <Link
+                      href="/open-routine/system"
+                      className="hover:text-white"
+                    >
+                      How it is maintained
+                    </Link>
+                  </li>
+                  <li>
                     <a
                       href={`${GITHUB}/issues`}
                       target="_blank"

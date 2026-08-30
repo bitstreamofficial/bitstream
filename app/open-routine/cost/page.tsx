@@ -2,18 +2,19 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import {
+  AMBER,
+  INK,
+  INK_DIM,
+  LegendSwatch,
+  Mono,
+  StepHeading,
+  TEAL,
+  Verdict,
+} from '../_components/prose';
+
 const GITHUB = 'https://github.com/mr-shakib/open-routine';
 const API = 'https://routine.bitstreamhq.com';
-
-/* Chart marks. Validated for contrast and colour-vision separation against the
-   #0B1416 page ground; deliberately a half-step darker than the brand #14B8A6,
-   which sits above the lightness band for data marks. UI accents keep the brand
-   colours. */
-const TEAL = '#14A896';
-const AMBER = '#DB6E33';
-
-const INK_DIM = '#94a3b8';
-const INK = '#cbd5e1';
 
 const DESCRIPTION =
   'Open Routine is free, and “servers cost money” is a checkable claim. We ' +
@@ -168,10 +169,10 @@ export default function OpenRoutineCostPage() {
 
           <div className="flex items-center gap-6">
             <Link
-              href="/open-routine#faq"
+              href="/open-routine/system"
               className="hidden text-sm text-slate-300 hover:text-white sm:block"
             >
-              FAQ
+              How it is maintained
             </Link>
             <a
               href={GITHUB}
@@ -1262,6 +1263,14 @@ export default function OpenRoutineCostPage() {
                     </Link>
                   </li>
                   <li>
+                    <Link
+                      href="/open-routine/system"
+                      className="hover:text-white"
+                    >
+                      How it is maintained
+                    </Link>
+                  </li>
+                  <li>
                     <a
                       href={`${API}/docs`}
                       target="_blank"
@@ -1285,53 +1294,5 @@ export default function OpenRoutineCostPage() {
         </div>
       </footer>
     </div>
-  );
-}
-
-/* ------------------------------------------------------------ helpers --- */
-
-function StepHeading({ n, title }: { n: string; title: string }) {
-  return (
-    <div className="flex items-baseline gap-4">
-      <span className="font-mono text-sm font-semibold tracking-[0.1em] text-[#2DD4BF]">
-        {n}
-      </span>
-      <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
-    </div>
-  );
-}
-
-function Verdict({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mt-8 rounded-r-xl border-l-[3px] border-[#14B8A6] bg-[#14B8A6]/10 px-6 py-5 text-lg leading-relaxed text-slate-200">
-      {children}
-    </div>
-  );
-}
-
-function Mono({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="font-mono text-[0.88em] font-semibold tabular-nums text-[#2DD4BF]">
-      {children}
-    </span>
-  );
-}
-
-function LegendSwatch({
-  color,
-  children,
-}: {
-  color: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <span className="inline-flex items-center gap-2 font-mono text-xs text-slate-300">
-      <i
-        className="h-3 w-3 shrink-0 rounded-sm"
-        style={{ background: color }}
-        aria-hidden
-      />
-      {children}
-    </span>
   );
 }
