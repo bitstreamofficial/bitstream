@@ -84,7 +84,7 @@ const faqs = [
   },
   {
     q: 'Then how is it paid for?',
-    a: 'It costs a few dollars a month to run one small server, covered by BitStream. There is nothing to monetise here — the routine is public information and the app holds no data worth selling.',
+    a: 'It costs a few dollars a month to run one small server, covered by BitStream — about $9, and we published the itemised bill at /open-routine/cost. There is nothing to monetise here: the routine is public information and the app holds no data worth selling.',
   },
   {
     q: 'Where does the routine come from?',
@@ -679,6 +679,14 @@ export default function OpenRoutinePage() {
                     >
                       GitHub
                     </a>
+                  </li>
+                  <li>
+                    <Link
+                      href="/open-routine/cost"
+                      className="hover:text-white"
+                    >
+                      What it costs to run
+                    </Link>
                   </li>
                   <li>
                     <a
